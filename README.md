@@ -1,6 +1,6 @@
 <h1 align="center">La Liga Intelligence</h1>
 <p align="center">
-<img src="assets/img/logo.png" height="150">
+<img src="assets/img/logo.png" height="50">
 </p>
 <img src="https://ak.picdn.net/shutterstock/videos/1022906356/thumb/1.jpg?ip=x480" height="20" width="30" style="max-width:100%;" title="English">
 <p text-alingn="justify">Project developed in Python with Pandas, Matplotlib, Numpy, ReportLab and SQLite3 tools. The purpose is create a software with graphical interface that can store data from La Liga (Spanish Football Championship), perform calculations using the data, provide graphics, generate PDF reports, and distribute your data in CSV and XLSX files.</p>
