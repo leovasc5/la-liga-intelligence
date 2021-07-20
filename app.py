@@ -3,7 +3,9 @@ from classes.times import Time
 from view.intro import *
 from view.home import App
 from tkinter import *
+from controllers.atualizarBD import update
 
+update()
 a = Cpt()
 timesID = a.getTimes()
 timeID = []; timeNome = []; timePosicao = []; timePontos = []; timeVitorias = []; timeEmpates = []; timeDerrotas = []

@@ -29,4 +29,4 @@ def dml(query): #insert, update, delete
         con.commit()
         con.close()
     except Error:
-        print(Error)
+        print("Erro - Reporte ao desenvolvedor")
