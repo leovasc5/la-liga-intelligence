@@ -2,7 +2,7 @@ from classes.campeonato import Cpt
 from classes.times import Time
 from view.intro import *
 from view.home import App
-import time
+from tkinter import *
 
 a = Cpt()
 timesID = a.getTimes()
@@ -27,4 +27,8 @@ for times in timeID:
     timeCartoesA.append(times.getCartoesA())
     timeCartoesV.append(times.getCartoesV())
 
-root = App(timePosicao, timeNome, timePontos, timePartidas, timeVitorias, timeEmpates, timeDerrotas, timeGolsPro, timeGolsContra, timeSaldo, a.getRodadas())
+root = Tk()
+root.title("La Liga Intelligence")
+root.state("zoomed")
+root.iconbitmap(str(p)+"\\assets\\img\\icon.ico")
+app = App(root, timePosicao, timeNome, timePontos, timePartidas, timeVitorias, timeEmpates, timeDerrotas, timeGolsPro, timeGolsContra, timeSaldo)
