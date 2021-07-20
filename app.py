@@ -1,7 +1,7 @@
-from classes.campeonato import Cpt
-from classes.times import Time
-from view.intro import *
-from view.home import App
+from models.campeonato import Cpt
+from models.times import Time
+from views.intro import *
+from views.home import App
 from tkinter import *
 from controllers.atualizarBD import update
 

@@ -1,5 +1,6 @@
 import sqlite3
 from sqlite3 import Error
+from tkinter import messagebox
 import os
 
 caminho = str(os.path.dirname(__file__)) + "\\appDB.db"
@@ -29,4 +30,4 @@ def dml(query): #insert, update, delete
         con.commit()
         con.close()
     except Error:
-        print("Erro - Reporte ao desenvolvedor")
+        messagebox.showerror(title="Erro", message="Erro - Reporte ao desenvolvedor")

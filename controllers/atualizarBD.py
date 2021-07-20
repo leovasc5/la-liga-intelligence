@@ -1,6 +1,7 @@
 import pandas as pd
 from pathlib import Path
 import os, sys, inspect
+from tkinter import messagebox
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
@@ -30,11 +31,11 @@ def update():
     for i in ct:
         try:
             dml("""UPDATE times SET nome='"""+nome[0][i]+"""', pontos= '"""+str(pontos[0][i])+"""', vitorias='"""+str(vitorias[0][i])+"""', 
-            empates='"""+str(empates[0][i])+"""', derrotas='"""+str(derrotas[0][i])+"""', partidas='"""+str(partidas[0][i])+"""', posicao='"""+str(posicao[0][i])+"""', golsPro='"""+str(golsPro[0][i])+"""', 
-            golsContra='"""+str(golsContra[0][i])+"""', saldo='"""+str(saldo[0][i])+"""', cartoesA='"""+str(cartoesA[0][i])+"""', cartoesV='"""+str(cartoesV[0][i])+"""'
-            WHERE ID='"""+str(id[0][i])+"""'""")
+            empates='"""+str(empates[0][i])+"""', derrotas='"""+str(derrotas[0][i])+"""', partidas='"""+str(partidas[0][i])+"""', posicao='"""+str(posicao[0][i])+"""', 
+            golsPro='"""+str(golsPro[0][i])+"""', golsContra='"""+str(golsContra[0][i])+"""', saldo='"""+str(saldo[0][i])+"""', cartoesA='"""+str(cartoesA[0][i])+"""', 
+            cartoesV='"""+str(cartoesV[0][i])+"""'WHERE ID='"""+str(id[0][i])+"""'""")
         except:
-            print("Erro")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
         
     
 

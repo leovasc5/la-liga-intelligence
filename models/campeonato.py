@@ -1,4 +1,5 @@
 import os, sys, inspect
+from tkinter import messagebox
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
@@ -23,7 +24,8 @@ class Cpt:
             res = dql("SELECT nome FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
+
 
     def getNome(self):
         return self.nome
@@ -33,7 +35,7 @@ class Cpt:
             res = dql("SELECT gols FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
     
     def getGols(self):
         return self.gols
@@ -43,7 +45,7 @@ class Cpt:
             res = dql("SELECT assistencias FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getAssistencias(self):
         return self.assistencias
@@ -53,7 +55,7 @@ class Cpt:
             res = dql("SELECT cls FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getCleanSheets(self):
         return self.clean_sheets
@@ -63,7 +65,7 @@ class Cpt:
             res = dql("SELECT cartoes_amarelos FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getCartoesA(self):
         return self.cartoes_a
@@ -73,7 +75,7 @@ class Cpt:
             res = dql("SELECT cartoes_vermelhos FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getCartoesV(self):
         return self.cartoes_v
@@ -83,17 +85,17 @@ class Cpt:
             res = dql("SELECT rodadas FROM campeonato")
             return res[0][0]
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getRodadas(self):
         return self.rodadas
 
     def setTimes(self):
         try:
-            res = dql("SELECT ID FROM times")
+            res = dql("SELECT ID FROM times ORDER BY posicao")
             return res
         except:
-            print("Erro ao resgatar os dados... Contate o programador")
+            messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
     def getTimes(self):
         return self.times

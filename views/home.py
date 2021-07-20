@@ -3,6 +3,7 @@ from pathlib import Path
 from tkinter import *
 from tkinter import ttk
 import numpy as np
+from tkinter import messagebox
 
 p = Path(os.getcwd())
 
@@ -39,11 +40,8 @@ class App:
         tv.grid(column=0, row=4, columnspan=3, padx=30, pady=120)
 
         c = np.arange(0, 20, 1)
-        for i in c:
-            tv.insert("", "end",values=(str(posicao[i]), nome[i], str(pontos[i]), str(partidas[i]), str(vitorias[i]), str(empates[i]), str(derrotas[i]), str(gp[i]), str(gc[i]), str(saldo[i])))
+        print(posicao)
+        for i in posicao:
+            tv.insert("", "end",values=(str(posicao[i-1]), nome[i-1], str(pontos[i-1]), str(partidas[i-1]), str(vitorias[i-1]), str(empates[i-1]), str(derrotas[i-1]), str(gp[i-1]), str(gc[i-1]), str(saldo[i-1])))
 
         root.mainloop()
-
-    # def reiniciar(self):
-    #     lbl2 = Label(self.root, text="TESTE")
-    #     lbl2.pack()
