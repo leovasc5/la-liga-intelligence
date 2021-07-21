@@ -60,7 +60,12 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn3.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(frameGraficos, text="Pontuação (Histograma)")
+        btn4 = Button(frameGraficos, text="Pontuação (Histograma)", command=lambda: self.call("pt_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn4.pack(side="left", padx=10, pady=10)
+
+        btn4 = Button(frameGraficos, text="Pontuação (Plot)", command=lambda: self.call("pt_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn4.pack(side="left", padx=10, pady=10)
 
         btn5 = Button(frameGraficos, text="Gols (Barras)")
@@ -77,4 +82,6 @@ class App:
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
         pt_ba(nome, pontos) if modo == "pt_ba" else None
         pt_pi(nome, pontos) if modo == "pt_pi" else None
+        pt_hi(pontos) if modo == "pt_hi" else None
+        pt_pl(nome, pontos) if modo == "pt_pl" else None
 
