@@ -50,23 +50,23 @@ class App:
         framePontuacao = LabelFrame(root, text="Gráficos da Pontuação", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         framePontuacao.place(x=30, y=600, width=915)
 
-        btn2 = Button(framePontuacao, text="Pontuação (Barras)", command=lambda: self.call("pt_ba", 
+        btn2 = Button(framePontuacao, text="Barras", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn2.pack(side="left", padx=10, pady=10)
 
-        btn3 = Button(framePontuacao, text="Pontuação (Pizza)", command=lambda: self.call("pt_pi", 
+        btn3 = Button(framePontuacao, text="Pizza", command=lambda: self.call("pt_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn3.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(framePontuacao, text="Pontuação (Histograma)", command=lambda: self.call("pt_hi", 
+        btn4 = Button(framePontuacao, text="Histograma", command=lambda: self.call("pt_hi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn4.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(framePontuacao, text="Pontuação (Plot)", command=lambda: self.call("pt_pl", 
+        btn4 = Button(framePontuacao, text="Plot", command=lambda: self.call("pt_pl", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn4.pack(side="left", padx=10, pady=10)
 
-        btn5 = Button(framePontuacao, text="Pontuação (ScatterPlot)", command=lambda: self.call("pt_sp", 
+        btn5 = Button(framePontuacao, text="ScatterPlot", command=lambda: self.call("pt_sp", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn5.pack(side="left", padx=10, pady=10)
         
