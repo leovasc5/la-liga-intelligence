@@ -52,10 +52,12 @@ class App:
         frameGraficos = LabelFrame(root, text="Gráficos", padx=10, pady=10, font="Helvetica 16 bold")
         frameGraficos.place(x=30, y=575, width=915)
 
-        btn2 = Button(frameGraficos, text="Pontuação (Barras)", command=lambda: self.call("pt_ba"))
+        btn2 = Button(frameGraficos, text="Pontuação (Barras)", command=lambda: self.call("pt_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn2.pack(side="left", padx=10, pady=10)
 
-        btn3 = Button(frameGraficos, text="Pontuação (Pizza)")
+        btn3 = Button(frameGraficos, text="Pontuação (Pizza)", command=lambda: self.call("pt_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn3.pack(side="left", padx=10, pady=10)
 
         btn4 = Button(frameGraficos, text="Pontuação (Histograma)")
@@ -72,6 +74,7 @@ class App:
 
         root.mainloop()
 
-    def call(self, modo):
-        pt_ba() if modo == "pt_ba" else None
+    def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
+        pt_ba(nome, pontos) if modo == "pt_ba" else None
+        pt_pi(nome, pontos) if modo == "pt_pi" else None
 
