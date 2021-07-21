@@ -2,20 +2,18 @@ import os, sys, inspect
 from pathlib import Path
 from tkinter import *
 from tkinter import ttk
-# import numpy as np
-# from tkinter import messagebox
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-sys.path.insert(0, parentdir) 
-from graphics.main import *
+sys.path.insert(0, parentdir)
 
+from graphics.main import *
 p = Path(os.getcwd())
 
 class App:
     def __init__(self, root, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
         logo = PhotoImage(file=str(p)+"\\assets\\img\\logo.png")
-        lbl1 = Label(root, image=logo)
+        lbl1 = Label(root, image=logo, bg="#FFFFFF")
         lbl1.place(x=30, y=30)
 
         tv = ttk.Treeview(root, columns=("posicao", "time", "pontos", "partidas", "vitorias", "empates", "derrotas", "golsPro", "golsContra", "saldo", "ca", "cv"), show="headings", height=20)
@@ -49,33 +47,34 @@ class App:
             tv.insert("", "end",values=(str(posicao[i-1]), nome[i-1], str(pontos[i-1]), str(partidas[i-1]), str(vitorias[i-1]), str(empates[i-1]), str(derrotas[i-1]), 
             str(gp[i-1]), str(gc[i-1]), str(saldo[i-1]), str(ca[i-1]), str(cv[i-1])))
 
-        frameGraficos = LabelFrame(root, text="Gráficos", padx=10, pady=10, font="Helvetica 16 bold")
-        frameGraficos.place(x=30, y=575, width=915)
+        framePontuacao = LabelFrame(root, text="Gráficos da Pontuação", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        framePontuacao.place(x=30, y=600, width=915)
 
-        btn2 = Button(frameGraficos, text="Pontuação (Barras)", command=lambda: self.call("pt_ba", 
+        btn2 = Button(framePontuacao, text="Pontuação (Barras)", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn2.pack(side="left", padx=10, pady=10)
 
-        btn3 = Button(frameGraficos, text="Pontuação (Pizza)", command=lambda: self.call("pt_pi", 
+        btn3 = Button(framePontuacao, text="Pontuação (Pizza)", command=lambda: self.call("pt_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn3.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(frameGraficos, text="Pontuação (Histograma)", command=lambda: self.call("pt_hi", 
+        btn4 = Button(framePontuacao, text="Pontuação (Histograma)", command=lambda: self.call("pt_hi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn4.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(frameGraficos, text="Pontuação (Plot)", command=lambda: self.call("pt_pl", 
+        btn4 = Button(framePontuacao, text="Pontuação (Plot)", command=lambda: self.call("pt_pl", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn4.pack(side="left", padx=10, pady=10)
 
-        btn5 = Button(frameGraficos, text="Gols (Barras)")
+        btn5 = Button(framePontuacao, text="Pontuação (ScatterPlot)", command=lambda: self.call("pt_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn5.pack(side="left", padx=10, pady=10)
         
-        btn6 = Button(frameGraficos, text="Gols (Pizza)")
-        btn6.pack(side="left", padx=10, pady=10)
+        # btn6 = Button(framePontuacao, text="Gols (Pizza)")
+        # btn6.pack(side="left", padx=10, pady=10)
 
-        btn4 = Button(frameGraficos, text="Gols (Histograma)")
-        btn4.pack(side="left", padx=10, pady=10)
+        # btn4 = Button(framePontuacao, text="Gols (Histograma)")
+        # btn4.pack(side="left", padx=10, pady=10)
 
         root.mainloop()
 
@@ -84,4 +83,5 @@ class App:
         pt_pi(nome, pontos) if modo == "pt_pi" else None
         pt_hi(pontos) if modo == "pt_hi" else None
         pt_pl(nome, pontos) if modo == "pt_pl" else None
+        pt_sp(nome, pontos) if modo == "pt_sp" else None
 
