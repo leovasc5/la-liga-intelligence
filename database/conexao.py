@@ -4,7 +4,6 @@ from tkinter import messagebox
 import os
 
 caminho = str(os.path.dirname(__file__)) + "\\appDB.db"
-print(caminho)
 
 def ConexaoBanco():
     con = None

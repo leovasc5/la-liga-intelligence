@@ -1,7 +1,6 @@
 from tkinter import *
 import os
 from pathlib import Path
-from time import sleep
 from tkinter.font import BOLD
 
 p = Path(os.getcwd())

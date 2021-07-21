@@ -1,10 +1,13 @@
 from models.campeonato import Cpt
 from models.times import Time
-from views.intro import *
+# from views.intro import *
 from views.home import App
 from tkinter import *
 from controllers.atualizarBD import update
+from pathlib import Path
+import os
 
+p = Path(os.getcwd())
 update()
 a = Cpt()
 timesID = a.getTimes()
@@ -33,4 +36,4 @@ root = Tk()
 root.title("La Liga Intelligence")
 root.state("zoomed")
 root.iconbitmap(str(p)+"\\assets\\img\\icon.ico")
-app = App(root, timePosicao, timeNome, timePontos, timePartidas, timeVitorias, timeEmpates, timeDerrotas, timeGolsPro, timeGolsContra, timeSaldo)
+app = App(root, timePosicao, timeNome, timePontos, timePartidas, timeVitorias, timeEmpates, timeDerrotas, timeGolsPro, timeGolsContra, timeSaldo, timeCartoesA, timeCartoesV)

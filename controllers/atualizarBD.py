@@ -36,7 +36,3 @@ def update():
             cartoesV='"""+str(cartoesV[0][i])+"""'WHERE ID='"""+str(id[0][i])+"""'""")
         except:
             messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
-        
-    
-
-update()
