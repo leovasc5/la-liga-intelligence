@@ -69,12 +69,25 @@ class App:
         btn5 = Button(framePontuacao, text="ScatterPlot", command=lambda: self.call("pt_sp", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn5.pack(side="left", padx=10, pady=10)
-        
-        # btn6 = Button(framePontuacao, text="Gols (Pizza)")
-        # btn6.pack(side="left", padx=10, pady=10)
 
-        # btn4 = Button(framePontuacao, text="Gols (Histograma)")
-        # btn4.pack(side="left", padx=10, pady=10)
+        btn6 = Button(framePontuacao, text="Pontuação-Gols Pró", command=lambda: self.call("pt_gp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn6.pack(side="left", padx=10, pady=10)
+
+        btn6 = Button(framePontuacao, text="Relação Pontuação-Gols Contra", command=lambda: self.call("pt_gc", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn6.pack(side="left", padx=10, pady=10)
+        
+        btn7 = Button(framePontuacao, text="Relação Pontuação-Saldo", command=lambda: self.call("pt_sl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn7.pack(side="left", padx=10, pady=10)
+
+        frameGols = LabelFrame(root, text="Gráficos dos Gols", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        frameGols.place(x=30, y=750, width=915)
+
+        btn7 = Button(frameGols, text="Relação Pontuação-Saldo", command=lambda: self.call("pt_sl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn7.pack(side="left", padx=10, pady=10)
 
         root.mainloop()
 
@@ -84,4 +97,7 @@ class App:
         pt_hi(pontos) if modo == "pt_hi" else None
         pt_pl(nome, pontos) if modo == "pt_pl" else None
         pt_sp(nome, pontos) if modo == "pt_sp" else None
+        pt_gp(pontos, gp) if modo == "pt_gp" else None
+        pt_gc(pontos, gc) if modo == "pt_gc" else None
+        pt_sl(pontos, saldo) if modo == "pt_sl" else None
 
