@@ -89,6 +89,18 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn7.pack(side="left", padx=10, pady=10)
 
+        btn8 = Button(frameGols, text="Barras (Gols Pró)", command=lambda: self.call("gp_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn8.pack(side="left", padx=10, pady=10)
+
+        btn9 = Button(frameGols, text="Barras (Gols Contra)", command=lambda: self.call("gs_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn9.pack(side="left", padx=10, pady=10)
+
+        btn10 = Button(frameGols, text="Pizza (Gols Pró)", command=lambda: self.call("gp_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn10.pack(side="left", padx=10, pady=10)
+
         root.mainloop()
 
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
@@ -101,6 +113,9 @@ class App:
         pt_gc(pontos, gc) if modo == "pt_gc" else None
         pt_sl(pontos, saldo) if modo == "pt_sl" else None
         gp_gc(gp, gc, nome) if modo == "gp_gc" else None 
+        gp_ba(nome, gp) if modo == "gp_ba" else None
+        gs_ba(nome, gc) if modo == "gs_ba" else None
+        gp_pi(nome, gp) if modo == "gp_pi" else None
 
 
 
