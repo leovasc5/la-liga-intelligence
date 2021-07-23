@@ -1,5 +1,7 @@
 from tkinter.constants import CENTER, RIGHT
 import matplotlib.pyplot as plt
+from matplotlib.pyplot import figure
+import numpy as np
 import os, sys, inspect
 from pathlib import Path
 import seaborn as sns
@@ -135,3 +137,38 @@ def pt_sl(pontos, saldo):
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.show()
     
+def gp_gc(gp, gc, nome):
+    plt.close()
+    y_pos=np.arange(len(nome))
+    plt.bar(y_pos + 0, gp, width=0.2, color='limegreen', label='Gols Pró')
+    plt.bar(y_pos + 0.2, gc, width=0.2, color='red', label='Gols Sofridos')
+
+    plt.xticks(np.arange(0,20), nome, rotation="vertical")
+    plt.legend(("Gols Pró", "Gols Sofridos"))
+    plt.ylabel("Gols")
+    plt.xlabel("Times")
+    plt.title("Relação: Gols Pró - Gols Sofridos")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def gp_gc(gp, gc, nome):
+    plt.close()
+    y_pos=np.arange(len(nome))
+    plt.bar(y_pos + 0, gp, width=0.2, color='limegreen', label='Gols Pró')
+    plt.bar(y_pos + 0.2, gc, width=0.2, color='red', label='Gols Sofridos')
+
+    plt.xticks(np.arange(0,20), nome, rotation="vertical")
+    plt.legend(("Gols Pró", "Gols Sofridos"))
+    plt.ylabel("Gols")
+    plt.xlabel("Times")
+    plt.title("Relação: Gols Pró - Gols Sofridos")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()

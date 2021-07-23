@@ -85,7 +85,7 @@ class App:
         frameGols = LabelFrame(root, text="Gráficos dos Gols", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameGols.place(x=30, y=750, width=915)
 
-        btn7 = Button(frameGols, text="Relação Pontuação-Saldo", command=lambda: self.call("pt_sl", 
+        btn7 = Button(frameGols, text="Relação de Gols", command=lambda: self.call("gp_gc", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn7.pack(side="left", padx=10, pady=10)
 
@@ -100,4 +100,9 @@ class App:
         pt_gp(pontos, gp) if modo == "pt_gp" else None
         pt_gc(pontos, gc) if modo == "pt_gc" else None
         pt_sl(pontos, saldo) if modo == "pt_sl" else None
+        gp_gc(gp, gc, nome) if modo == "gp_gc" else None 
 
+
+
+#Relação Vitorias - Derrotas - Empates
+#Relação Vitorias - ca - cv
