@@ -93,13 +93,25 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn8.pack(side="left", padx=10, pady=10)
 
-        btn9 = Button(frameGols, text="Barras (Gols Contra)", command=lambda: self.call("gs_ba", 
+        btn9 = Button(frameGols, text="Barras (Gols Sofridos)", command=lambda: self.call("gs_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn9.pack(side="left", padx=10, pady=10)
 
         btn10 = Button(frameGols, text="Pizza (Gols Pró)", command=lambda: self.call("gp_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn10.pack(side="left", padx=10, pady=10)
+
+        btn11 = Button(frameGols, text="Pizza (Gols Sofridos)", command=lambda: self.call("gs_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn11.pack(side="left", padx=10, pady=10)
+
+        btn12 = Button(frameGols, text="Histograma (Gols Pró)", command=lambda: self.call("gp_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn12.pack(side="left", padx=10, pady=10)
+
+        btn13 = Button(frameGols, text="Histograma (Gols Sofridos)", command=lambda: self.call("gc_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn13.pack(side="left", padx=10, pady=10)
 
         root.mainloop()
 
@@ -116,6 +128,9 @@ class App:
         gp_ba(nome, gp) if modo == "gp_ba" else None
         gs_ba(nome, gc) if modo == "gs_ba" else None
         gp_pi(nome, gp) if modo == "gp_pi" else None
+        gs_pi(nome, gc) if modo == "gs_pi" else None
+        gp_hi(gp) if modo == "gp_hi" else None
+        gc_hi(gc) if modo == "gc_hi" else None 
 
 
 

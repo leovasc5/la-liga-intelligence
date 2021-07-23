@@ -213,3 +213,42 @@ def gp_pi(nome, gp):
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.legend(bbox_to_anchor=(0, 0.5))
     plt.show()
+
+def gs_pi(nome, gc):
+    plt.close()
+    plt.pie(gc, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico da Pontuação (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
+
+def gp_hi(gp):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(gp) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Gols')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def gc_hi(gc):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(gc) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Gols')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
