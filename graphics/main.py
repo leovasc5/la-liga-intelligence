@@ -252,3 +252,31 @@ def gc_hi(gc):
     wm.window.wm_iconbitmap(icon)
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.show()
+
+def gp_pl(nome, gp):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.plot(nome, gp)
+    plt.ylabel('Gols')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Gols Pró (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def gc_pl(nome, gc):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.plot(nome, gc)
+    plt.ylabel('Gols')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Gols Sofridos (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()

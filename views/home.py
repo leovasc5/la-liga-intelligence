@@ -83,35 +83,43 @@ class App:
         btn7.pack(side="left", padx=10, pady=10)
 
         frameGols = LabelFrame(root, text="Gráficos dos Gols", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
-        frameGols.place(x=30, y=750, width=915)
+        frameGols.place(x=30, y=750, width=915, height=150)
 
         btn7 = Button(frameGols, text="Relação de Gols", command=lambda: self.call("gp_gc", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn7.pack(side="left", padx=10, pady=10)
+        btn7.place(x=10, y=10)
 
         btn8 = Button(frameGols, text="Barras (Gols Pró)", command=lambda: self.call("gp_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn8.pack(side="left", padx=10, pady=10)
+        btn8.place(x=120, y=10)
 
         btn9 = Button(frameGols, text="Barras (Gols Sofridos)", command=lambda: self.call("gs_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn9.pack(side="left", padx=10, pady=10)
+        btn9.place(x=230, y=10)
 
         btn10 = Button(frameGols, text="Pizza (Gols Pró)", command=lambda: self.call("gp_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn10.pack(side="left", padx=10, pady=10)
+        btn10.place(x=365, y=10)
 
         btn11 = Button(frameGols, text="Pizza (Gols Sofridos)", command=lambda: self.call("gs_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn11.pack(side="left", padx=10, pady=10)
+        btn11.place(x=470, y=10)
 
         btn12 = Button(frameGols, text="Histograma (Gols Pró)", command=lambda: self.call("gp_hi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn12.pack(side="left", padx=10, pady=10)
+        btn12.place(x=600, y=10)
 
         btn13 = Button(frameGols, text="Histograma (Gols Sofridos)", command=lambda: self.call("gc_hi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn13.pack(side="left", padx=10, pady=10)
+        btn13.place(x=10, y=50)
+
+        btn14 = Button(frameGols, text="Plot (Gols Pró)", command=lambda: self.call("gp_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn14.place(x=750, y=10)
+
+        btn15 = Button(frameGols, text="Plot (Gols Sofridos)", command=lambda: self.call("gc_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn15.place(x=180, y=50)
 
         root.mainloop()
 
@@ -131,6 +139,8 @@ class App:
         gs_pi(nome, gc) if modo == "gs_pi" else None
         gp_hi(gp) if modo == "gp_hi" else None
         gc_hi(gc) if modo == "gc_hi" else None 
+        gp_pl(nome, gp) if modo == "gp_pl" else None
+        gc_pl(nome, gc) if modo == "gc_pl" else None
 
 
 
