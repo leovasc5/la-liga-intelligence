@@ -121,6 +121,18 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn15.place(x=180, y=50)
 
+        btn16 = Button(frameGols, text="ScatterPlot (Gols Pró)", command=lambda: self.call("gp_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn16.place(x=300, y=50)
+
+        btn17 = Button(frameGols, text="ScatterPlot (Gols Sofridos)", command=lambda: self.call("gc_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn17.place(x=430, y=50)
+
+        btn18 = Button(frameGols, text="Relação Gols Pró - Gols Sofridos (Gols Sofridos)", command=lambda: self.call("r_gpc", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn18.place(x=595, y=50)
+
         root.mainloop()
 
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
@@ -141,6 +153,9 @@ class App:
         gc_hi(gc) if modo == "gc_hi" else None 
         gp_pl(nome, gp) if modo == "gp_pl" else None
         gc_pl(nome, gc) if modo == "gc_pl" else None
+        gp_sp(nome, gp) if modo == "gp_sp" else None
+        gc_sp(nome, gc) if modo == "gc_sp" else None
+        r_gpc(nome, gp, gc) if modo == "r_gpc" else None
 
 
 

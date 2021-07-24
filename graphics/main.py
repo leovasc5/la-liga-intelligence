@@ -5,6 +5,8 @@ import numpy as np
 import os, sys, inspect
 from pathlib import Path
 import seaborn as sns
+import pandas as pd
+from pandas import pivot
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
@@ -275,6 +277,48 @@ def gc_pl(nome, gc):
     plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
     plt.title("La Liga Intelligence - Gráfico de Gols Sofridos (Plot)")
     
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def gp_sp(nome, gp):
+    plt.close()
+    plt.scatter(nome, gp, label='Gols', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Gols (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def gc_sp(nome, gc):
+    plt.close()
+    plt.scatter(nome, gc, label='Gols', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Gols Sofridos (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def r_gpc(nome, gp, gc):
+    plt.close()
+    df = pd.DataFrame({
+        'Gols Pró': gp,
+        'Gols Sofridos': gc
+    }, index=nome)
+    # plt.xticks(nome)
+    # plt.xticks(labels=nome, rotation = 'vertical')
+    lines = df.plot.line()
+    lines.plot()
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
     wm.window.wm_iconbitmap(icon)
