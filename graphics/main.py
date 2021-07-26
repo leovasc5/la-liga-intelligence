@@ -311,14 +311,31 @@ def gc_sp(nome, gc):
 
 def r_gpc(nome, gp, gc):
     plt.close()
-    df = pd.DataFrame({
-        'Gols Pró': gp,
-        'Gols Sofridos': gc
-    }, index=nome)
-    # plt.xticks(nome)
-    # plt.xticks(labels=nome, rotation = 'vertical')
-    lines = df.plot.line()
-    lines.plot()
+    plt.subplots_adjust(bottom=0.18, top=0.88)
+    tickvalues = range(0,len(nome))
+    plt.xticks(ticks=tickvalues, labels=nome, rotation='vertical')
+    plt.plot(gp)
+    plt.plot(gc)
+    plt.ylabel('Gols')
+    plt.legend(("Gols Pró", "Gols Sofridos"))
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def re_ba(nome, vitorias, empates, derrotas):
+    plt.close()
+    y_pos=np.arange(len(nome))
+    plt.bar(y_pos + 0, vitorias, width=0.2, color='limegreen', label='Gols Pró')
+    plt.bar(y_pos + 0.2, derrotas, width=0.2, color='red', label='Gols Sofridos')
+    plt.bar(y_pos + 0.4, empates, width=0.2, color='grey', label='Gols Sofridos')
+
+    plt.xticks(np.arange(0,20), nome, rotation="vertical")
+    plt.legend(("Vitórias", "Derrotas", "Empates"))
+    plt.title("Relação de Resultados")
+    
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
     wm.window.wm_iconbitmap(icon)

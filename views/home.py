@@ -136,6 +136,10 @@ class App:
         frameResultados = LabelFrame(root, text="Gráficos das Vitórias, Empates e Derrotas", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameResultados.place(x=30, y=875, width=915, height=150)
 
+        btn7 = Button(frameResultados, text="Relação de Resultados", command=lambda: self.call("re_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn7.place(x=10, y=10)
+
         root.mainloop()
 
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
@@ -159,8 +163,8 @@ class App:
         gp_sp(nome, gp) if modo == "gp_sp" else None
         gc_sp(nome, gc) if modo == "gc_sp" else None
         r_gpc(nome, gp, gc) if modo == "r_gpc" else None
+        re_ba(nome, vitorias, empates, derrotas) if modo == "re_ba" else None
 
 
 
-#Relação Vitorias - Derrotas - Empates
 #Relação Vitorias - ca - cv
