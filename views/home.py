@@ -142,51 +142,63 @@ class App:
 
         btn20 = Button(frameResultados, text="Barras (Vitórias)", command=lambda: self.call("vi_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn20.place(x=150, y=10)
+        btn20.place(x=143, y=10)
 
         btn21 = Button(frameResultados, text="Barras (Derrotas)", command=lambda: self.call("de_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn21.place(x=260, y=10)
+        btn21.place(x=241, y=10)
 
         btn22 = Button(frameResultados, text="Barras (Empates)", command=lambda: self.call("em_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn22.place(x=375, y=10)
+        btn22.place(x=344, y=10)
 
         btn23 = Button(frameResultados, text="Pizza (Vitórias)", command=lambda: self.call("vi_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn23.place(x=490, y=10)
+        btn23.place(x=447, y=10)
 
         btn24 = Button(frameResultados, text="Pizza (Derrotas)", command=lambda: self.call("de_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn24.place(x=595, y=10)
+        btn24.place(x=535, y=10)
 
         btn25 = Button(frameResultados, text="Pizza (Empates)", command=lambda: self.call("em_pi", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn25.place(x=705, y=10)
+        btn25.place(x=630, y=10)
 
         btn26 = Button(frameResultados, text="Plot (Vitórias)", command=lambda: self.call("vi_pl", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn26.place(x=10, y=50)
+        btn26.place(x=725, y=10)
 
         btn27 = Button(frameResultados, text="Plot (Derrotas)", command=lambda: self.call("de_pl", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn27.place(x=105, y=50)
+        btn27.place(x=810, y=10)
 
         btn28 = Button(frameResultados, text="Plot (Empates)", command=lambda: self.call("em_pl", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn28.place(x=210, y=50)
+        btn28.place(x=10, y=50)
 
-        # btn29 = Button(frameResultados, text="Pizza (Vitórias)", command=lambda: self.call("vi_pi", 
-        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        # btn23.place(x=490, y=10)
+        btn29 = Button(frameResultados, text="Histograma (Vitórias)", command=lambda: self.call("vi_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn29.place(x=110, y=50)
 
-        # btn30 = Button(frameResultados, text="Pizza (Derrotas)", command=lambda: self.call("de_pi", 
-        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        # btn24.place(x=595, y=10)
+        btn30 = Button(frameResultados, text="Histograma (Derrotas)", command=lambda: self.call("de_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn30.place(x=240, y=50)
 
-        # btn31 = Button(frameResultados, text="Pizza (Empates)", command=lambda: self.call("em_pi", 
-        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        # btn25.place(x=705, y=10)
+        btn31 = Button(frameResultados, text="Histograma (Empates)", command=lambda: self.call("em_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn31.place(x=375, y=50)
+
+        btn32 = Button(frameResultados, text="ScatterPlot (Vitórias)", command=lambda: self.call("vi_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn32.place(x=510, y=50)
+
+        btn33 = Button(frameResultados, text="ScatterPlot (Derrotas)", command=lambda: self.call("de_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn33.place(x=640, y=50)
+
+        btn34 = Button(frameResultados, text="ScatterPlot (Empates)", command=lambda: self.call("em_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn34.place(x=772, y=50)
 
         root.mainloop()
 
@@ -221,6 +233,12 @@ class App:
         vi_pl(nome, vitorias) if modo == "vi_pl" else None
         de_pl(nome, derrotas) if modo == "de_pl" else None
         em_pl(nome, empates) if modo == "em_pl" else None
+        vi_hi(vitorias) if modo == "vi_hi" else None
+        de_hi(derrotas) if modo == "de_hi" else None
+        em_hi(empates) if modo == "em_hi" else None
+        vi_sp(nome, vitorias) if modo == "vi_sp" else None
+        de_sp(nome, derrotas) if modo == "de_sp" else None
+        em_sp(nome, empates) if modo == "em_sp" else None
 
 
 

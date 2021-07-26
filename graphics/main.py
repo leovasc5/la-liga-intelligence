@@ -425,11 +425,11 @@ def em_pi(nome, empates):
 
 def vi_pl(nome, vitorias):
     plt.close()
-    plt.rcParams.update({'font.size': 10})
-    plt.plot(nome, pontos)
-    plt.ylabel('Pontuação')
+    plt.rcParams.update({'font.size': 8})
+    plt.plot(nome, vitorias)
+    plt.ylabel('Vitórias')
     plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
-    plt.title("La Liga Intelligence - Gráfico da Pontuação (Plot)")
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Plot)")
     
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
@@ -438,5 +438,110 @@ def vi_pl(nome, vitorias):
     plt.show()
 
 def de_pl(nome, derrotas):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.plot(nome, derrotas)
+    plt.ylabel('Vitórias')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
 
 def em_pl(nome, empates):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.plot(nome, empates)
+    plt.ylabel('Vitórias')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def vi_hi(vitorias):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(vitorias) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Vitórias')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def de_hi(derrotas):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(derrotas) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Derrotas')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def em_hi(empates):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(empates) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Empates')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def vi_sp(nome, vitorias):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.scatter(nome, vitorias, label='Vitórias', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def de_sp(nome, derrotas):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.scatter(nome, derrotas, label='Derrotas', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Derrotas (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def em_sp(nome, empates):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.scatter(nome, empates, label='Empates', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Empates (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
