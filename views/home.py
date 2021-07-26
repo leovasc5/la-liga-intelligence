@@ -200,6 +200,23 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn34.place(x=772, y=50)
 
+        frameEdit = LabelFrame(root, text="Editar a Tabela", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        frameEdit.place(x=980, y=108, width=905, height=440)
+
+        frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        frameCartoes.place(x=980, y=575, width=905, height=150)
+
+        framePDF = LabelFrame(root, text="Criar Relatórios PDF", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        framePDF.place(x=980, y=755, width=905)
+
+        btn2 = Button(framePDF, text="Barras", command=lambda: self.call("pt_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn2.pack(side="left", padx=10, pady=10)
+
+        frameSobre = LabelFrame(root, text="Sobre", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        frameSobre.place(x=980, y=875, width=915, height=150)
+        
+
         root.mainloop()
 
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):

@@ -5,8 +5,6 @@ import numpy as np
 import os, sys, inspect
 from pathlib import Path
 import seaborn as sns
-import pandas as pd
-from pandas import pivot
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
