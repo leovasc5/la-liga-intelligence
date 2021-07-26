@@ -48,7 +48,7 @@ class App:
             str(gp[i-1]), str(gc[i-1]), str(saldo[i-1]), str(ca[i-1]), str(cv[i-1])))
 
         framePontuacao = LabelFrame(root, text="Gráficos da Pontuação", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
-        framePontuacao.place(x=30, y=600, width=915)
+        framePontuacao.place(x=30, y=575, width=915)
 
         btn2 = Button(framePontuacao, text="Barras", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
@@ -83,7 +83,7 @@ class App:
         btn7.pack(side="left", padx=10, pady=10)
 
         frameGols = LabelFrame(root, text="Gráficos dos Gols", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
-        frameGols.place(x=30, y=750, width=915, height=150)
+        frameGols.place(x=30, y=700, width=915, height=150)
 
         btn7 = Button(frameGols, text="Relação de Gols", command=lambda: self.call("gp_gc", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
@@ -132,6 +132,9 @@ class App:
         btn18 = Button(frameGols, text="Relação Gols Pró - Gols Sofridos (Gols Sofridos)", command=lambda: self.call("r_gpc", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn18.place(x=595, y=50)
+
+        frameResultados = LabelFrame(root, text="Gráficos das Vitórias, Empates e Derrotas", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
+        frameResultados.place(x=30, y=875, width=915, height=150)
 
         root.mainloop()
 
