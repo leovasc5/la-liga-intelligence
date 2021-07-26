@@ -164,6 +164,30 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn25.place(x=705, y=10)
 
+        btn26 = Button(frameResultados, text="Plot (Vitórias)", command=lambda: self.call("vi_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn26.place(x=10, y=50)
+
+        btn27 = Button(frameResultados, text="Plot (Derrotas)", command=lambda: self.call("de_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn27.place(x=105, y=50)
+
+        btn28 = Button(frameResultados, text="Plot (Empates)", command=lambda: self.call("em_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn28.place(x=210, y=50)
+
+        # btn29 = Button(frameResultados, text="Pizza (Vitórias)", command=lambda: self.call("vi_pi", 
+        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        # btn23.place(x=490, y=10)
+
+        # btn30 = Button(frameResultados, text="Pizza (Derrotas)", command=lambda: self.call("de_pi", 
+        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        # btn24.place(x=595, y=10)
+
+        # btn31 = Button(frameResultados, text="Pizza (Empates)", command=lambda: self.call("em_pi", 
+        # posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        # btn25.place(x=705, y=10)
+
         root.mainloop()
 
     def call(self, modo, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
@@ -194,6 +218,9 @@ class App:
         vi_pi(nome, vitorias) if modo == "vi_pi" else None
         de_pi(nome, derrotas) if modo == "de_pi" else None
         em_pi(nome, empates) if modo == "em_pi" else None
+        vi_pl(nome, vitorias) if modo == "vi_pl" else None
+        de_pl(nome, derrotas) if modo == "de_pl" else None
+        em_pl(nome, empates) if modo == "em_pl" else None
 
 
 

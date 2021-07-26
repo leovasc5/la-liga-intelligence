@@ -422,3 +422,21 @@ def em_pi(nome, empates):
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.legend(bbox_to_anchor=(0, 0.5))
     plt.show()
+
+def vi_pl(nome, vitorias):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.plot(nome, pontos)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico da Pontuação (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def de_pl(nome, derrotas):
+
+def em_pl(nome, empates):
