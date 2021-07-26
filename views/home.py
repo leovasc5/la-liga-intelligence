@@ -136,9 +136,21 @@ class App:
         frameResultados = LabelFrame(root, text="Gráficos das Vitórias, Empates e Derrotas", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameResultados.place(x=30, y=875, width=915, height=150)
 
-        btn7 = Button(frameResultados, text="Relação de Resultados", command=lambda: self.call("re_ba", 
+        btn19 = Button(frameResultados, text="Relação de Resultados", command=lambda: self.call("re_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn7.place(x=10, y=10)
+        btn19.place(x=10, y=10)
+
+        btn20 = Button(frameResultados, text="Barras (Vitórias)", command=lambda: self.call("vi_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn20.place(x=120, y=10)
+
+        btn21 = Button(frameResultados, text="Barras (Derrotas)", command=lambda: self.call("de_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn21.place(x=230, y=10)
+
+        btn22 = Button(frameResultados, text="Barras (Empates)", command=lambda: self.call("em_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn22.place(x=365, y=10)
 
         root.mainloop()
 
@@ -164,6 +176,9 @@ class App:
         gc_sp(nome, gc) if modo == "gc_sp" else None
         r_gpc(nome, gp, gc) if modo == "r_gpc" else None
         re_ba(nome, vitorias, empates, derrotas) if modo == "re_ba" else None
+        vi_ba(nome, vitorias) if modo == "vi_ba" else None
+        de_ba(nome, derrotas) if modo == "de_ba" else None
+        em_ba(nome, empates) if modo == "em_ba" else None
 
 
 

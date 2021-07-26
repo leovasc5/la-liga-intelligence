@@ -341,3 +341,45 @@ def re_ba(nome, vitorias, empates, derrotas):
     wm.window.wm_iconbitmap(icon)
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.show()
+
+def vi_ba(nome, vitorias):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.subplots_adjust(left=0.02, bottom=0.11, right=0.98, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Barras)")
+    plt.bar(nome, vitorias, label='Vitórias', width=0.5, align=CENTER)
+ 
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend()
+    plt.show()
+
+def de_ba(nome, derrotas):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.subplots_adjust(left=0.02, bottom=0.11, right=0.98, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Derrotas (Barras)")
+    plt.bar(nome, derrotas, label='Vitórias', width=0.5, align=CENTER)
+ 
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend()
+    plt.show()
+
+def em_ba(nome, empates):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.subplots_adjust(left=0.02, bottom=0.11, right=0.98, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Empates (Barras)")
+    plt.bar(nome, empates, label='Empates', width=0.5, align=CENTER)
+ 
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend()
+    plt.show()
