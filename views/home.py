@@ -2,6 +2,8 @@ import os, sys, inspect
 from pathlib import Path
 from tkinter import *
 from tkinter import ttk
+from tkinter.font import BOLD
+import webbrowser
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
@@ -212,9 +214,28 @@ class App:
         btn2 = Button(framePDF, text="Barras", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn2.pack(side="left", padx=10, pady=10)
-
+        
         frameSobre = LabelFrame(root, text="Sobre", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameSobre.place(x=980, y=875, width=915, height=150)
+
+        lbl2 = Label(frameSobre, text="Desenvolvedor:", bg="#FFFFFF", font="Helvetica 13 bold")
+        lbl2.place(x=15, y=5)
+        
+        lbl3 = Label(frameSobre, text="Leonardo Vasconcelos Paulino", bg="#FFFFFF", font="Helvetica 13")
+        lbl3.place(x=145, y=5)
+
+        lbl4 = Label(frameSobre, text="GitHub:", bg="#FFFFFF", font="Helvetica 13 bold")
+        lbl4.place(x=15, y=35)
+
+        lbl5 = Button(frameSobre, text="Acessar GitHub do desenvolvedor", cursor="hand2", command=lambda: webbrowser.open('https://github.com/leovasc5/'))
+        lbl5.place(x=90, y=35)
+
+        lbl6 = Label(frameSobre, text="Código:", bg="#FFFFFF", font="Helvetica 13 bold")
+        lbl6.place(x=15, y=65)
+
+        lbl7 = Button(frameSobre, text="Acessar Repositório", cursor="hand2", command=lambda: webbrowser.open('https://github.com/leovasc5/La-Liga-Intelligence'))
+        lbl7.place(x=90, y=65)
+
         
 
         root.mainloop()
@@ -256,7 +277,5 @@ class App:
         vi_sp(nome, vitorias) if modo == "vi_sp" else None
         de_sp(nome, derrotas) if modo == "de_sp" else None
         em_sp(nome, empates) if modo == "em_sp" else None
-
-
 
 #Relação Vitorias - ca - cv
