@@ -142,15 +142,27 @@ class App:
 
         btn20 = Button(frameResultados, text="Barras (Vitórias)", command=lambda: self.call("vi_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn20.place(x=120, y=10)
+        btn20.place(x=150, y=10)
 
         btn21 = Button(frameResultados, text="Barras (Derrotas)", command=lambda: self.call("de_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn21.place(x=230, y=10)
+        btn21.place(x=260, y=10)
 
         btn22 = Button(frameResultados, text="Barras (Empates)", command=lambda: self.call("em_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn22.place(x=365, y=10)
+        btn22.place(x=375, y=10)
+
+        btn23 = Button(frameResultados, text="Pizza (Vitórias)", command=lambda: self.call("vi_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn23.place(x=490, y=10)
+
+        btn24 = Button(frameResultados, text="Pizza (Derrotas)", command=lambda: self.call("de_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn24.place(x=595, y=10)
+
+        btn25 = Button(frameResultados, text="Pizza (Empates)", command=lambda: self.call("em_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn25.place(x=705, y=10)
 
         root.mainloop()
 
@@ -179,6 +191,9 @@ class App:
         vi_ba(nome, vitorias) if modo == "vi_ba" else None
         de_ba(nome, derrotas) if modo == "de_ba" else None
         em_ba(nome, empates) if modo == "em_ba" else None
+        vi_pi(nome, vitorias) if modo == "vi_pi" else None
+        de_pi(nome, derrotas) if modo == "de_pi" else None
+        em_pi(nome, empates) if modo == "em_pi" else None
 
 
 

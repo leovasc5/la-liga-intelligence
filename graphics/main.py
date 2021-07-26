@@ -383,3 +383,42 @@ def em_ba(nome, empates):
     plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
     plt.legend()
     plt.show()
+
+def vi_pi(nome, vitorias):
+    plt.close()
+    plt.pie(vitorias, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
+
+def de_pi(nome, derrotas):
+    plt.close()
+    plt.pie(derrotas, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
+
+def em_pi(nome, empates):
+    plt.close()
+    plt.pie(empates, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico de Vitórias (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
