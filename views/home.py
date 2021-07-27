@@ -10,6 +10,8 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
 from graphics.main import *
+from reports.pontuacao import *
+
 p = Path(os.getcwd())
 
 class App:
@@ -255,9 +257,9 @@ class App:
         framePDF = LabelFrame(root, text="Criar Relatórios PDF", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         framePDF.place(x=980, y=755, width=905)
 
-        btn2 = Button(framePDF, text="Barras", command=lambda: self.call("pt_ba", 
+        btn44 = Button(framePDF, text="Relatório de Pontuação", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn2.pack(side="left", padx=10, pady=10) ###EXEMPLO, ALTERAR DEPOIS
+        btn44.pack(side="left", padx=10, pady=10) ###EXEMPLO, ALTERAR DEPOIS
         
         frameSobre = LabelFrame(root, text="Sobre", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameSobre.place(x=980, y=875, width=905, height=150)
