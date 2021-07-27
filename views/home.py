@@ -131,7 +131,7 @@ class App:
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn17.place(x=430, y=50)
 
-        btn18 = Button(frameGols, text="Relação Gols Pró - Gols Sofridos (Gols Sofridos)", command=lambda: self.call("r_gpc", 
+        btn18 = Button(frameGols, text="Relação Gols Pró - Gols Sofridos", command=lambda: self.call("r_gpc", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
         btn18.place(x=595, y=50)
 
@@ -208,15 +208,59 @@ class App:
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameCartoes.place(x=980, y=575, width=905, height=150)
 
+        btn35 = Button(frameCartoes, text="Relação de Cartões", command=lambda: self.call("ca_cv", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn35.place(x=10, y=10)
+
+        btn36 = Button(frameCartoes, text="Barra (Cartões Amarelos)", command=lambda: self.call("ca_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn36.place(x=125, y=10)
+
+        btn37 = Button(frameCartoes, text="Barra (Cartões Vermelhos)", command=lambda: self.call("cv_ba", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn37.place(x=270, y=10)
+
+        btn37 = Button(frameCartoes, text="Pizza (Cartões Amarelos)", command=lambda: self.call("ca_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn37.place(x=420, y=10)
+
+        btn37 = Button(frameCartoes, text="Pizza (Cartões Vermelhos)", command=lambda: self.call("cv_pi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn37.place(x=562, y=10)
+
+        btn38 = Button(frameCartoes, text="Histograma (Cartões Amarelos)", command=lambda: self.call("ca_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn38.place(x=712, y=10)
+
+        btn39 = Button(frameCartoes, text="Histograma (Cartões Vermelhos)", command=lambda: self.call("cv_hi", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn39.place(x=10, y=50)
+
+        btn40 = Button(frameCartoes, text="Plot (Cartões Amarelos)", command=lambda: self.call("ca_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn40.place(x=205, y=50)
+
+        btn41 = Button(frameCartoes, text="Plot (Cartões Vermelhos)", command=lambda: self.call("cv_pl", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn41.place(x=355, y=50)
+
+        btn42 = Button(frameCartoes, text="ScatterPlot (Cartões Amarelos)", command=lambda: self.call("ca_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn42.place(x=515, y=50)
+
+        btn43 = Button(frameCartoes, text="ScatterPlot (Cartões Vermelhos)", command=lambda: self.call("cv_sp", 
+        posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
+        btn43.place(x=700, y=50)
+
         framePDF = LabelFrame(root, text="Criar Relatórios PDF", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         framePDF.place(x=980, y=755, width=905)
 
         btn2 = Button(framePDF, text="Barras", command=lambda: self.call("pt_ba", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn2.pack(side="left", padx=10, pady=10)
+        btn2.pack(side="left", padx=10, pady=10) ###EXEMPLO, ALTERAR DEPOIS
         
         frameSobre = LabelFrame(root, text="Sobre", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
-        frameSobre.place(x=980, y=875, width=915, height=150)
+        frameSobre.place(x=980, y=875, width=905, height=150)
 
         lbl2 = Label(frameSobre, text="Desenvolvedor:", bg="#FFFFFF", font="Helvetica 13 bold")
         lbl2.place(x=15, y=5)
@@ -235,8 +279,6 @@ class App:
 
         lbl7 = Button(frameSobre, text="Acessar Repositório", cursor="hand2", command=lambda: webbrowser.open('https://github.com/leovasc5/La-Liga-Intelligence'))
         lbl7.place(x=90, y=65)
-
-        
 
         root.mainloop()
 
@@ -277,5 +319,14 @@ class App:
         vi_sp(nome, vitorias) if modo == "vi_sp" else None
         de_sp(nome, derrotas) if modo == "de_sp" else None
         em_sp(nome, empates) if modo == "em_sp" else None
-
-#Relação Vitorias - ca - cv
+        ca_cv(nome, ca, cv) if modo == "ca_cv" else None
+        ca_ba(nome, ca) if modo == "ca_ba" else None
+        cv_ba(nome, cv) if modo == "cv_ba" else None
+        ca_pi(nome, ca) if modo == "ca_pi" else None
+        cv_pi(nome, cv) if modo == "cv_pi" else None
+        ca_hi(ca) if modo == "ca_hi" else None
+        cv_hi(cv) if modo == "cv_hi" else None
+        ca_pl(nome, ca) if modo == "ca_pl" else None
+        cv_pl(nome, cv) if modo == "cv_pl" else None
+        ca_sp(nome, ca) if modo == "ca_sp" else None
+        cv_sp(nome, cv) if modo == "cv_sp" else None

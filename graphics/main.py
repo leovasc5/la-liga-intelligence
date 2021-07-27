@@ -69,6 +69,7 @@ def pt_pl(nome, pontos):
 
 def pt_sp(nome, pontos):
     plt.close()
+    plt.rcParams.update({'font.size': 8})
     plt.scatter(nome, pontos, label='Pontos', marker = 'o', s=100)
     plt.ylabel('Pontuação')
     plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
@@ -255,7 +256,7 @@ def gc_hi(gc):
 
 def gp_pl(nome, gp):
     plt.close()
-    plt.rcParams.update({'font.size': 10})
+    plt.rcParams.update({'font.size': 8})
     plt.plot(nome, gp)
     plt.ylabel('Gols')
     plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
@@ -269,7 +270,7 @@ def gp_pl(nome, gp):
 
 def gc_pl(nome, gc):
     plt.close()
-    plt.rcParams.update({'font.size': 10})
+    plt.rcParams.update({'font.size': 8})
     plt.plot(nome, gc)
     plt.ylabel('Gols')
     plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
@@ -283,6 +284,7 @@ def gc_pl(nome, gc):
 
 def gp_sp(nome, gp):
     plt.close()
+    plt.rcParams.update({'font.size': 8})
     plt.scatter(nome, gp, label='Gols', marker = 'o', s=100)
     plt.ylabel('Pontuação')
     plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
@@ -296,6 +298,7 @@ def gp_sp(nome, gp):
 
 def gc_sp(nome, gc):
     plt.close()
+    plt.rcParams.update({'font.size': 8})
     plt.scatter(nome, gc, label='Gols', marker = 'o', s=100)
     plt.ylabel('Pontuação')
     plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
@@ -537,6 +540,160 @@ def em_sp(nome, empates):
     plt.ylabel('Pontuação')
     plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
     plt.title("La Liga Intelligence - Gráfico de Empates (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def ca_cv(nome, ca, cv):
+    plt.close()
+    y_pos=np.arange(len(nome))
+    plt.bar(y_pos + 0, ca, width=0.2, color='yellow', label='Cartões Amarelos')
+    plt.bar(y_pos + 0.2, cv, width=0.2, color='red', label='Cartões Vermelhos')
+
+    plt.xticks(np.arange(0,20), nome, rotation="vertical")
+    plt.legend(("Cartões Amarelos","Cartões Vermelhos"))
+    plt.ylabel("Cartões Amarelos")
+    plt.xlabel("Cartões Vermelhos")
+    plt.title("Relação: Cartões Amarelos - Cartões Vermelhos")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def ca_ba(nome, ca):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.subplots_adjust(left=0.02, bottom=0.11, right=0.98, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Amarelos (Barras)")
+    plt.bar(nome, ca, label='Cartões Amarelos', width=0.5, align=CENTER)
+ 
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend()
+    plt.show()
+
+def cv_ba(nome, cv):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.subplots_adjust(left=0.02, bottom=0.11, right=0.98, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Vermelhos (Barras)")
+    plt.bar(nome, cv, label='Cartões Vermelhos', width=0.5, align=CENTER)
+ 
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend()
+    plt.show()
+
+def ca_pi(nome, ca):
+    plt.close()
+    plt.pie(ca, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico de Cartões Amarelos (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
+
+def cv_pi(nome, cv):
+    plt.close()
+    plt.pie(cv, labels=nome, startangle=90, explode=[0 for i in range(20)])
+    plt.rcParams.update({'font.size': 10})
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    plt.title("La Liga Intelligence - Gráfico de Cartões Vermelhos (Pizza)")
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.legend(bbox_to_anchor=(0, 0.5))
+    plt.show()
+
+def ca_hi(ca):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(ca) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Cartões Amarelos')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def cv_hi(cv):
+    plt.close()
+    plt.rcParams.update({'font.size': 10})
+    plt.hist(cv) 
+    plt.ylabel('Nº de Times')
+    plt.xlabel('Cartões Vermelhos')
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def ca_pl(nome, ca):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.plot(nome, ca)
+    plt.ylabel('Cartões Amarelos')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Amarelos (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def cv_pl(nome, cv):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.plot(nome, cv)
+    plt.ylabel('Cartões Vermelhos')
+    plt.subplots_adjust(left=0.02, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Vermelhos (Plot)")
+    
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def ca_sp(nome, ca):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.scatter(nome, ca, label='Cartões Amarelos', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Amarelos (ScatterPlot)")
+
+    wm = plt.get_current_fig_manager()
+    wm.window.state('zoomed')
+    wm.window.wm_iconbitmap(icon)
+    plt.get_current_fig_manager().canvas.set_window_title('La Liga Intelligence')
+    plt.show()
+
+def cv_sp(nome, cv):
+    plt.close()
+    plt.rcParams.update({'font.size': 8})
+    plt.scatter(nome, cv, label='Cartões Vermelhos', marker = 'o', s=100)
+    plt.ylabel('Pontuação')
+    plt.subplots_adjust(left=0.03, bottom=0.3, right=0.99, top=0.88, wspace=0.2, hspace=0.82)
+    plt.title("La Liga Intelligence - Gráfico de Cartões Vermelhos (ScatterPlot)")
 
     wm = plt.get_current_fig_manager()
     wm.window.state('zoomed')
