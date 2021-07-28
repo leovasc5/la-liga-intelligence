@@ -1,6 +1,7 @@
 import os, sys, inspect
 from pathlib import Path
 from tkinter import *
+from tkinter import messagebox
 from tkinter import ttk
 from tkinter.font import BOLD
 import webbrowser
@@ -220,69 +221,69 @@ class App:
         lbl9 = Label(frameEdit, text="Pontos", bg="#FFFFFF")
         lbl9.place(x=10, y=80)
 
-        vpontos = IntVar()
+        vpontos = StringVar()
         en1 = Entry(frameEdit, width=10, textvariable=vpontos)
         en1.place(x=10, y=105)
 
         lbl10 = Label(frameEdit, text="Partidas", bg="#FFFFFF")
         lbl10.place(x=10, y=150)
 
-        vpartidas = IntVar()
+        vpartidas = StringVar()
         en2 = Entry(frameEdit, width=10, textvariable=vpartidas)
         en2.place(x=10, y=175)
 
         lbl11 = Label(frameEdit, text="Vitórias", bg="#FFFFFF")
         lbl11.place(x=10, y=220)
 
-        vvitorias = IntVar()
+        vvitorias = StringVar()
         en3 = Entry(frameEdit, width=10, textvariable=vvitorias)
         en3.place(x=10, y=245)
 
         lbl12 = Label(frameEdit, text="Empates", bg="#FFFFFF")
         lbl12.place(x=10, y=290)
 
-        vempates = IntVar()
+        vempates = StringVar()
         en4 = Entry(frameEdit, width=10, textvariable=vempates)
         en4.place(x=10, y=315)
 
         lbl13 = Label(frameEdit, text="Derrotas", bg="#FFFFFF")
         lbl13.place(x=240, y=10)
 
-        vderrotas = IntVar()
-        en5 = Entry(frameEdit, width=10, textvariable=vempates)
+        vderrotas = StringVar()
+        en5 = Entry(frameEdit, width=10, textvariable=vderrotas)
         en5.place(x=240, y=35)
 
         lbl14 = Label(frameEdit, text="Gols Pró", bg="#FFFFFF")
         lbl14.place(x=240, y=80)
 
-        vgp = IntVar()
+        vgp = StringVar()
         en6 = Entry(frameEdit, width=10, textvariable=vgp)
         en6.place(x=240, y=105)
 
         lbl15 = Label(frameEdit, text="Gols Sofridos", bg="#FFFFFF")
-        lbl15.place(x=240, y=80)
+        lbl15.place(x=240, y=150)
 
-        vgc = IntVar()
+        vgc = StringVar()
         en7 = Entry(frameEdit, width=10, textvariable=vgc)
-        en7.place(x=240, y=105)
+        en7.place(x=240, y=175)
 
         lbl16 = Label(frameEdit, text="Cartões Amarelos", bg="#FFFFFF")
-        lbl16.place(x=240, y=150)
+        lbl16.place(x=240, y=220)
 
-        vca = IntVar()
+        vca = StringVar()
         en8 = Entry(frameEdit, width=10, textvariable=vca)
-        en8.place(x=240, y=175)
+        en8.place(x=240, y=245)
 
         lbl17 = Label(frameEdit, text="Cartões Vermelhos", bg="#FFFFFF")
-        lbl17.place(x=240, y=220)
+        lbl17.place(x=240, y=290)
 
-        vcv = IntVar()
+        vcv = StringVar()
         en9 = Entry(frameEdit, width=10, textvariable=vcv)
-        en9.place(x=240, y=245)
+        en9.place(x=240, y=315)
 
         btn45 = Button(frameEdit, text="Atualizar Tabela", command=lambda: self.updateDate(vequipe.get(), vpontos.get(), vpartidas.get(),
         vvitorias.get(), vempates.get(), vderrotas.get(), vgp.get(), vgc.get(), vca.get(), vcv.get()))
-        btn45.place(x=240, y=300)
+        btn45.place(x=470, y=300)
 
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameCartoes.place(x=980, y=575, width=905, height=150)
@@ -411,14 +412,44 @@ class App:
         cv_sp(nome, cv) if modo == "cv_sp" else None
 
     def updateDate(self, equipe, pontos, partidas, vitorias, empates, derrotas, gp, gc, ca, cv):
-        print(str(equipe))
-        print(str(pontos))
-        print(str(partidas))
-        print(str(vitorias))
-        print(str(empates))
-        print(str(derrotas))
-        print(str(gp))
-        print(str(gc))
-        print(str(ca))
-        print(str(cv))
+        if equipe == "Equipe":
+            return self.escape("error", "Não foi selecionada nenhuma equipe!")
+
+        try:
+            partidas = int(partidas)
+            pontos = int(pontos)
+            vitorias = int(vitorias)
+            empates = int(empates)
+            derrotas = int(derrotas)
+            gp = int(gp)
+            gc = int(gc)
+            ca = int(ca)
+            cv = int(cv)
+        except:
+            return self.escape("error", "É preciso que os valores sejam números inteiros!")
+
+        if partidas > 38:
+            return self.escape("error", "Não é possível que o time dispute mais de 38 partidas!")
+
+        if (partidas or vitorias or empates or derrotas or gp or gc or ca or cv) < 0: #Exceto pontos por conta da possibilidade de punições
+            return self.escape("error", "Não é possível aceitar números negativos!")
+
+    def escape(self, modo, msg):
+        if modo == "error":
+            messagebox.showerror(title="Erro", message=msg)
+
+        
+    
+        # if type(pontos) or type(partidas) or type(vitorias) or type(empates) or type(derrotas) or type(gp) or type(gc) or type(ca) or type(cv) != int:
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
