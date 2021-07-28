@@ -1,9 +1,9 @@
 from models.campeonato import Cpt
 from models.times import Time
-from views.intro import *
+from controllers.atualizarBD import update
+# from views.intro import *
 from views.home import App
 from tkinter import *
-from controllers.atualizarBD import update
 from pathlib import Path
 import os
 

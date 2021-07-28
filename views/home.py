@@ -5,6 +5,8 @@ from tkinter import ttk
 from tkinter.font import BOLD
 import webbrowser
 
+from matplotlib.pyplot import text
+
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
@@ -206,6 +208,80 @@ class App:
 
         frameEdit = LabelFrame(root, text="Editar a Tabela", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameEdit.place(x=980, y=108, width=905, height=440)
+
+        lbl8 = Label(frameEdit, text="Time", bg="#FFFFFF")
+        lbl8.place(x=10, y=10)
+        
+        vequipe = StringVar()
+        select = ttk.Combobox(frameEdit, values=nome, textvariable=vequipe)
+        select.set("Equipe")
+        select.place(x=10, y=35)
+        
+        lbl9 = Label(frameEdit, text="Pontos", bg="#FFFFFF")
+        lbl9.place(x=10, y=80)
+
+        vpontos = IntVar()
+        en1 = Entry(frameEdit, width=10, textvariable=vpontos)
+        en1.place(x=10, y=105)
+
+        lbl10 = Label(frameEdit, text="Partidas", bg="#FFFFFF")
+        lbl10.place(x=10, y=150)
+
+        vpartidas = IntVar()
+        en2 = Entry(frameEdit, width=10, textvariable=vpartidas)
+        en2.place(x=10, y=175)
+
+        lbl11 = Label(frameEdit, text="Vitórias", bg="#FFFFFF")
+        lbl11.place(x=10, y=220)
+
+        vvitorias = IntVar()
+        en3 = Entry(frameEdit, width=10, textvariable=vvitorias)
+        en3.place(x=10, y=245)
+
+        lbl12 = Label(frameEdit, text="Empates", bg="#FFFFFF")
+        lbl12.place(x=10, y=290)
+
+        vempates = IntVar()
+        en4 = Entry(frameEdit, width=10, textvariable=vempates)
+        en4.place(x=10, y=315)
+
+        lbl13 = Label(frameEdit, text="Derrotas", bg="#FFFFFF")
+        lbl13.place(x=240, y=10)
+
+        vempates = IntVar()
+        en5 = Entry(frameEdit, width=10, textvariable=vempates)
+        en5.place(x=240, y=35)
+
+        lbl14 = Label(frameEdit, text="Gols Pró", bg="#FFFFFF")
+        lbl14.place(x=240, y=80)
+
+        vgp = IntVar()
+        en6 = Entry(frameEdit, width=10, textvariable=vgp)
+        en6.place(x=240, y=105)
+
+        lbl15 = Label(frameEdit, text="Gols Sofridos", bg="#FFFFFF")
+        lbl15.place(x=240, y=80)
+
+        vgc = IntVar()
+        en7 = Entry(frameEdit, width=10, textvariable=vgc)
+        en7.place(x=240, y=105)
+
+        lbl16 = Label(frameEdit, text="Cartões Amarelos", bg="#FFFFFF")
+        lbl16.place(x=240, y=150)
+
+        vca = IntVar()
+        en8 = Entry(frameEdit, width=10, textvariable=vca)
+        en8.place(x=240, y=175)
+
+        lbl17 = Label(frameEdit, text="Cartões Vermelhos", bg="#FFFFFF")
+        lbl17.place(x=240, y=220)
+
+        vcv = IntVar()
+        en9 = Entry(frameEdit, width=10, textvariable=vcv)
+        en9.place(x=240, y=245)
+
+        btn45 = Button(frameEdit, text="Atualizar Tabela")
+        btn45.place(x=240, y=300)
 
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameCartoes.place(x=980, y=575, width=905, height=150)
