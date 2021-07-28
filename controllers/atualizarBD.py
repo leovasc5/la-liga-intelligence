@@ -41,11 +41,38 @@ def updateEquipe(n_equipe, n_pontos, n_partidas, n_vitorias, n_empates, n_derrot
     p = Path(os.getcwd())
     
     df = pd.read_csv(str(p)+"\\database\\dados.csv", encoding="UTF-8", sep=";")
-    dados = df.to_dict()
-    # index = None
+    id = list([df.loc[0:20]["ID"]])
+    nome = list([df.loc[0:20]["nome"]])
+    pontos = list([df.loc[0:20]["pontos"]])
+    vitorias = list([df.loc[0:20]["vitorias"]])
+    empates = list([df.loc[0:20]["empates"]])
+    derrotas = list([df.loc[0:20]["derrotas"]])
+    partidas = list([df.loc[0:20]["partidas"]])
+    posicao = list([df.loc[0:20]["posicao"]])
+    golsPro = list([df.loc[0:20]["golsPro"]])
+    golsContra = list([df.loc[0:20]["golsContra"]])
+    saldo = list([df.loc[0:20]["saldo"]])
+    cartoesA = list([df.loc[0:20]["cartoesA"]])
+    cartoesV = list([df.loc[0:20]["cartoesV"]])
 
-    for a in dados["nome"]:
-        if dados["nome"][a] == n_equipe:
+    objeto = {}
+    
+    i = 0
+    for a in nome[0]:
+        objeto[a] = id[0][i], nome[0][i], pontos[0][i], vitorias[0][i], empates[0][i], derrotas[0][i], partidas[0][i], posicao[0][i], golsPro[0][i], golsContra[0][i], saldo[0][i], cartoesA[0][i], cartoesV[0][i]
+        i+=1
+        
+    print(objeto)
+
+    # for a in dados["nome"]:
+    #     if dados["nome"][a] == n_equipe:
+    #         index = a
+
+    # index
+    # posicao = [1, 2, 3, 4]
+    # lista = [86, 87, 79, 79]
+    # lista.sort(reverse=True)
+    # print(lista)
 
 
     # dados["pontos"] = 
