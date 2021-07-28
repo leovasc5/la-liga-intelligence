@@ -37,4 +37,39 @@ def update():
         except:
             messagebox.showerror(title="Erro", message="A comunicação com o Banco de Dados não foi estabelecida")
 
-# def updateEquipe()
+def updateEquipe(n_equipe, n_pontos, n_partidas, n_vitorias, n_empates, n_derrotas, n_gp, n_gc, n_ca, n_cv):
+    p = Path(os.getcwd())
+    
+    df = pd.read_csv(str(p)+"\\database\\dados.csv", encoding="UTF-8", sep=";")
+    dados = df.to_dict()
+    # index = None
+
+    for a in dados["nome"]:
+        if dados["nome"][a] == n_equipe:
+
+
+    # dados["pontos"] = 
+    # dados["vitorias"] =
+    # dados["empates"] =
+    # dados["derrotas"] =
+    # dados["partidas"] =
+    # dados["posicao"] =
+    # dados["golsPro"] =
+    # dados["golsContra"] =
+    # dados["saldo"] =
+    # dados["cartoesA"] =
+    # dados["cartoesV"] =
+
+    # print("\n")
+    # print(n_equipe)
+    # print(n_partidas)
+    # print(n_pontos)
+    # print(n_vitorias)
+    # print(n_empates)
+    # print(n_derrotas)
+    # print(n_gp)
+    # print(n_gc)
+    # print(n_ca)
+    # print(n_cv)
+
+updateEquipe("Real Madrid", 87, 39, 26, 9, 4, 70, 28, 57, 4)

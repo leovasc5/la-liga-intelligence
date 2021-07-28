@@ -14,6 +14,7 @@ sys.path.insert(0, parentdir)
 
 from graphics.main import *
 from reports.pontuacao import *
+from controllers.atualizarBD import updateEquipe
 
 p = Path(os.getcwd())
 
@@ -434,13 +435,14 @@ class App:
         if (partidas or vitorias or empates or derrotas or gp or gc or ca or cv) < 0: #Exceto pontos por conta da possibilidade de punições
             return self.escape("error", "Não é possível aceitar números negativos!")
 
+        updateEquipe(equipe, pontos, partidas, vitorias, empates, derrotas, gp, gc, ca, cv)
+
     def escape(self, modo, msg):
         if modo == "error":
             messagebox.showerror(title="Erro", message=msg)
 
         
     
-        # if type(pontos) or type(partidas) or type(vitorias) or type(empates) or type(derrotas) or type(gp) or type(gc) or type(ca) or type(cv) != int:
 
         
         
