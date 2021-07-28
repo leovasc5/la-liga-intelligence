@@ -248,7 +248,7 @@ class App:
         lbl13 = Label(frameEdit, text="Derrotas", bg="#FFFFFF")
         lbl13.place(x=240, y=10)
 
-        vempates = IntVar()
+        vderrotas = IntVar()
         en5 = Entry(frameEdit, width=10, textvariable=vempates)
         en5.place(x=240, y=35)
 
@@ -280,7 +280,8 @@ class App:
         en9 = Entry(frameEdit, width=10, textvariable=vcv)
         en9.place(x=240, y=245)
 
-        btn45 = Button(frameEdit, text="Atualizar Tabela")
+        btn45 = Button(frameEdit, text="Atualizar Tabela", command=lambda: self.updateDate(vequipe.get(), vpontos.get(), vpartidas.get(),
+        vvitorias.get(), vempates.get(), vderrotas.get(), vgp.get(), vgc.get(), vca.get(), vcv.get()))
         btn45.place(x=240, y=300)
 
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
@@ -408,3 +409,16 @@ class App:
         cv_pl(nome, cv) if modo == "cv_pl" else None
         ca_sp(nome, ca) if modo == "ca_sp" else None
         cv_sp(nome, cv) if modo == "cv_sp" else None
+
+    def updateDate(self, equipe, pontos, partidas, vitorias, empates, derrotas, gp, gc, ca, cv):
+        print(str(equipe))
+        print(str(pontos))
+        print(str(partidas))
+        print(str(vitorias))
+        print(str(empates))
+        print(str(derrotas))
+        print(str(gp))
+        print(str(gc))
+        print(str(ca))
+        print(str(cv))
+        
