@@ -58,45 +58,31 @@ def updateEquipe(n_equipe, n_pontos, n_partidas, n_vitorias, n_empates, n_derrot
     objeto = {}
     
     i = 0
-    for a in nome[0]:
-        objeto[a] = id[0][i], nome[0][i], pontos[0][i], vitorias[0][i], empates[0][i], derrotas[0][i], partidas[0][i], posicao[0][i], golsPro[0][i], golsContra[0][i], saldo[0][i], cartoesA[0][i], cartoesV[0][i]
+    for a in list(range(0,20)):
+        objeto[a] = [id[0][i], nome[0][i], pontos[0][i], vitorias[0][i], empates[0][i], derrotas[0][i], partidas[0][i], posicao[0][i], golsPro[0][i], golsContra[0][i], saldo[0][i], cartoesA[0][i], cartoesV[0][i]]
         i+=1
-        
-    print(objeto)
 
-    # for a in dados["nome"]:
-    #     if dados["nome"][a] == n_equipe:
-    #         index = a
+    for b in objeto:
+        if objeto[b][1] == n_equipe:
+            objeto[b][2] = n_pontos
+            objeto[b][6] = n_partidas
+            objeto[b][3] = n_vitorias
+            objeto[b][4] = n_empates
+            objeto[b][5] = n_derrotas
+            objeto[b][7] = objeto[b][7]
+            objeto[b][8] = n_gp
+            objeto[b][9] = n_gc
+            objeto[b][10] = n_gp - n_gc #saldo
+            objeto[b][11] = n_ca
+            objeto[b][12] = n_cv
 
-    # index
-    # posicao = [1, 2, 3, 4]
-    # lista = [86, 87, 79, 79]
-    # lista.sort(reverse=True)
-    # print(lista)
+    cont = list(range(0,20))
+    dados = sorted(objeto.values(), key=lambda v:v[2], reverse=True)
+    dados = dict(zip(cont, dados))
+    
+    for c in dados:
+        dados[c][7] = (c+1)
 
+    print(dados)
 
-    # dados["pontos"] = 
-    # dados["vitorias"] =
-    # dados["empates"] =
-    # dados["derrotas"] =
-    # dados["partidas"] =
-    # dados["posicao"] =
-    # dados["golsPro"] =
-    # dados["golsContra"] =
-    # dados["saldo"] =
-    # dados["cartoesA"] =
-    # dados["cartoesV"] =
-
-    # print("\n")
-    # print(n_equipe)
-    # print(n_partidas)
-    # print(n_pontos)
-    # print(n_vitorias)
-    # print(n_empates)
-    # print(n_derrotas)
-    # print(n_gp)
-    # print(n_gc)
-    # print(n_ca)
-    # print(n_cv)
-
-updateEquipe("Real Madrid", 87, 39, 26, 9, 4, 70, 28, 57, 4)
+updateEquipe("Real Madrid", 86, 39, 26, 9, 4, 70, 28, 57, 4)
