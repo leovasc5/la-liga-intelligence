@@ -6,12 +6,12 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
-from controllers.atualizarBD import update
+from controllers.atualizarBD import updateBD
 
 def updateEquipe(n_equipe, n_pontos, n_partidas, n_vitorias, n_empates, n_derrotas, n_gp, n_gc, n_ca, n_cv):
     p = Path(os.getcwd())
     
-    df = pd.read_csv(str(p)+"\\database\\dados.csv", encoding="UTF-8", sep=",")
+    df = pd.read_csv(str(p)+"\\database\\dados.csv", encoding="UTF-8", sep=";")
     id = list([df.loc[0:20]["ID"]])
     nome = list([df.loc[0:20]["nome"]])
     pontos = list([df.loc[0:20]["pontos"]])
@@ -55,10 +55,6 @@ def updateEquipe(n_equipe, n_pontos, n_partidas, n_vitorias, n_empates, n_derrot
         dados[c][7] = (c+1)
 
     df = pd.DataFrame(data=dados.values(), columns=["ID", "nome", "pontos", "vitorias", "empates", "derrotas", "partidas", "posicao", "golsPro", "golsContra", "saldo", "cartoesA", "cartoesV"])
-    # df.set_index('ID', inplace=True)
-    # print(df)
     df.to_csv(str(p)+"\\database\\dados.csv", sep=";")
 
-    # update()
-
-updateEquipe("Real Madrid", 114, 39, 26, 9, 4, 70, 28, 57, 4)
+    updateBD()

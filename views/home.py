@@ -14,7 +14,7 @@ sys.path.insert(0, parentdir)
 
 from graphics.main import *
 from reports.pontuacao import *
-from controllers.atualizarBD import updateEquipe
+from controllers.atualizarCSV import updateEquipe
 
 p = Path(os.getcwd())
 

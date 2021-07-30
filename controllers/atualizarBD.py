@@ -9,7 +9,7 @@ sys.path.insert(0, parentdir)
 
 from database.conexao import *
 
-def update():
+def updateBD():
     p = Path(os.getcwd())
     ct = list(range(0,20))
 

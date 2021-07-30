@@ -1,14 +1,14 @@
 from models.campeonato import Cpt
 from models.times import Time
-from controllers.atualizarBD import update
-# from views.intro import *
+from controllers.atualizarBD import updateBD
+from views.intro import *
 from views.home import App
 from tkinter import *
 from pathlib import Path
 import os
 
 p = Path(os.getcwd())
-update()
+updateBD()
 a = Cpt()
 timesID = a.getTimes()
 timeID = []; timeNome = []; timePosicao = []; timePontos = []; timeVitorias = []; timeEmpates = []; timeDerrotas = []
