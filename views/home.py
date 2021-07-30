@@ -19,40 +19,42 @@ from controllers.atualizarCSV import updateEquipe
 p = Path(os.getcwd())
 
 class App:
+    # tv = None
     def __init__(self, root, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
         logo = PhotoImage(file=str(p)+"\\assets\\img\\logo.png")
         lbl1 = Label(root, image=logo, bg="#FFFFFF")
         lbl1.place(x=30, y=30)
 
-        tv = ttk.Treeview(root, columns=("posicao", "time", "pontos", "partidas", "vitorias", "empates", "derrotas", "golsPro", "golsContra", "saldo", "ca", "cv"), show="headings", height=20)
-        tv.column("posicao", minwidth=0, width=50)
-        tv.column("time", minwidth=0, width=150)
-        tv.column("pontos", minwidth=0, width=50)
-        tv.column("partidas", minwidth=0, width=100)
-        tv.column("vitorias", minwidth=0, width=70)
-        tv.column("empates", minwidth=0, width=70)
-        tv.column("derrotas", minwidth=0, width=70)
-        tv.column("golsPro", minwidth=0, width=70)
-        tv.column("golsContra", minwidth=0, width=70)
-        tv.column("saldo", minwidth=0, width=70)    
-        tv.column("ca", minwidth=0, width=70)
-        tv.column("cv", minwidth=0, width=70)   
-        tv.heading("posicao", text="Posição")
-        tv.heading("time", text="Time")
-        tv.heading("pontos", text="Pontos")
-        tv.heading("partidas", text="Partidas Jogadas")
-        tv.heading("vitorias", text="Vitórias")
-        tv.heading("empates", text="Empates")
-        tv.heading("derrotas", text="Derrotas")
-        tv.heading("golsPro", text="Gols Pró")
-        tv.heading("golsContra", text="Gols Sofridos")
-        tv.heading("saldo", text="Saldo de Gols")
-        tv.heading("ca", text="CA")
-        tv.heading("cv", text="CV")
-        tv.grid(column=0, row=4, columnspan=3, padx=30, pady=120)
+        self.tv = ttk.Treeview(root, columns=("posicao", "time", "pontos", "partidas", "vitorias", "empates", "derrotas", "golsPro", "golsContra", "saldo", "ca", "cv"), show="headings", height=20)
+        self.tv.column("posicao", minwidth=0, width=50)
+        self.tv.column("time", minwidth=0, width=150)
+        self.tv.column("pontos", minwidth=0, width=50)
+        self.tv.column("partidas", minwidth=0, width=100)
+        self.tv.column("vitorias", minwidth=0, width=70)
+        self.tv.column("empates", minwidth=0, width=70)
+        self.tv.column("derrotas", minwidth=0, width=70)
+        self.tv.column("golsPro", minwidth=0, width=70)
+        self.tv.column("golsContra", minwidth=0, width=70)
+        self.tv.column("saldo", minwidth=0, width=70)    
+        self.tv.column("ca", minwidth=0, width=70)
+        self.tv.column("cv", minwidth=0, width=70)   
+        self.tv.heading("posicao", text="Posição")
+        self.tv.heading("time", text="Time")
+        self.tv.heading("pontos", text="Pontos")
+        self.tv.heading("partidas", text="Partidas Jogadas")
+        self.tv.heading("vitorias", text="Vitórias")
+        self.tv.heading("empates", text="Empates")
+        self.tv.heading("derrotas", text="Derrotas")
+        self.tv.heading("golsPro", text="Gols Pró")
+        self.tv.heading("golsContra", text="Gols Sofridos")
+        self.tv.heading("saldo", text="Saldo de Gols")
+        self.tv.heading("ca", text="CA")
+        self.tv.heading("cv", text="CV")
+        self.tv.bind('<ButtonRelease-1>', self.selectItem)
+        self.tv.grid(column=0, row=4, columnspan=3, padx=30, pady=120)
 
         for i in posicao:
-            tv.insert("", "end",values=(str(posicao[i-1]), nome[i-1], str(pontos[i-1]), str(partidas[i-1]), str(vitorias[i-1]), str(empates[i-1]), str(derrotas[i-1]), 
+            self.tv.insert("", "end",values=(str(posicao[i-1]), nome[i-1], str(pontos[i-1]), str(partidas[i-1]), str(vitorias[i-1]), str(empates[i-1]), str(derrotas[i-1]), 
             str(gp[i-1]), str(gc[i-1]), str(saldo[i-1]), str(ca[i-1]), str(cv[i-1])))
 
         framePontuacao = LabelFrame(root, text="Gráficos da Pontuação", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
@@ -214,76 +216,76 @@ class App:
         lbl8 = Label(frameEdit, text="Time", bg="#FFFFFF")
         lbl8.place(x=10, y=10)
         
-        vequipe = StringVar()
-        select = ttk.Combobox(frameEdit, values=nome, textvariable=vequipe)
+        self.vequipe = StringVar()
+        select = ttk.Combobox(frameEdit, values=nome, textvariable=self.vequipe)
         select.set("Equipe")
         select.place(x=10, y=35)
         
         lbl9 = Label(frameEdit, text="Pontos", bg="#FFFFFF")
         lbl9.place(x=10, y=80)
 
-        vpontos = StringVar()
-        en1 = Entry(frameEdit, width=10, textvariable=vpontos)
+        self.vpontos = StringVar()
+        en1 = Entry(frameEdit, width=10, textvariable=self.vpontos)
         en1.place(x=10, y=105)
 
         lbl10 = Label(frameEdit, text="Partidas", bg="#FFFFFF")
         lbl10.place(x=10, y=150)
 
-        vpartidas = StringVar()
-        en2 = Entry(frameEdit, width=10, textvariable=vpartidas)
+        self.vpartidas = StringVar()
+        en2 = Entry(frameEdit, width=10, textvariable=self.vpartidas)
         en2.place(x=10, y=175)
 
         lbl11 = Label(frameEdit, text="Vitórias", bg="#FFFFFF")
         lbl11.place(x=10, y=220)
 
-        vvitorias = StringVar()
-        en3 = Entry(frameEdit, width=10, textvariable=vvitorias)
+        self.vvitorias = StringVar()
+        en3 = Entry(frameEdit, width=10, textvariable=self.vvitorias)
         en3.place(x=10, y=245)
 
         lbl12 = Label(frameEdit, text="Empates", bg="#FFFFFF")
         lbl12.place(x=10, y=290)
 
-        vempates = StringVar()
-        en4 = Entry(frameEdit, width=10, textvariable=vempates)
+        self.vempates = StringVar()
+        en4 = Entry(frameEdit, width=10, textvariable=self.vempates)
         en4.place(x=10, y=315)
 
         lbl13 = Label(frameEdit, text="Derrotas", bg="#FFFFFF")
         lbl13.place(x=240, y=10)
 
-        vderrotas = StringVar()
-        en5 = Entry(frameEdit, width=10, textvariable=vderrotas)
+        self.vderrotas = StringVar()
+        en5 = Entry(frameEdit, width=10, textvariable=self.vderrotas)
         en5.place(x=240, y=35)
 
         lbl14 = Label(frameEdit, text="Gols Pró", bg="#FFFFFF")
         lbl14.place(x=240, y=80)
 
-        vgp = StringVar()
-        en6 = Entry(frameEdit, width=10, textvariable=vgp)
+        self.vgp = StringVar()
+        en6 = Entry(frameEdit, width=10, textvariable=self.vgp)
         en6.place(x=240, y=105)
 
         lbl15 = Label(frameEdit, text="Gols Sofridos", bg="#FFFFFF")
         lbl15.place(x=240, y=150)
 
-        vgc = StringVar()
-        en7 = Entry(frameEdit, width=10, textvariable=vgc)
+        self.vgc = StringVar()
+        en7 = Entry(frameEdit, width=10, textvariable=self.vgc)
         en7.place(x=240, y=175)
 
         lbl16 = Label(frameEdit, text="Cartões Amarelos", bg="#FFFFFF")
         lbl16.place(x=240, y=220)
 
-        vca = StringVar()
-        en8 = Entry(frameEdit, width=10, textvariable=vca)
+        self.vca = StringVar()
+        en8 = Entry(frameEdit, width=10, textvariable=self.vca)
         en8.place(x=240, y=245)
 
         lbl17 = Label(frameEdit, text="Cartões Vermelhos", bg="#FFFFFF")
         lbl17.place(x=240, y=290)
 
-        vcv = StringVar()
-        en9 = Entry(frameEdit, width=10, textvariable=vcv)
+        self.vcv = StringVar()
+        en9 = Entry(frameEdit, width=10, textvariable=self.vcv)
         en9.place(x=240, y=315)
 
-        btn45 = Button(frameEdit, text="Atualizar Tabela", command=lambda: self.updateDate(vequipe.get(), vpontos.get(), vpartidas.get(),
-        vvitorias.get(), vempates.get(), vderrotas.get(), vgp.get(), vgc.get(), vca.get(), vcv.get()))
+        btn45 = Button(frameEdit, text="Atualizar Tabela", command=lambda: self.updateDate(self.vequipe.get(), self.vpontos.get(), self.vpartidas.get(),
+        self.vvitorias.get(), self.vempates.get(), self.vderrotas.get(), self.vgp.get(), self.vgc.get(), self.vca.get(), self.vcv.get()))
         btn45.place(x=470, y=300)
 
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
@@ -441,17 +443,27 @@ class App:
         if modo == "error":
             messagebox.showerror(title="Erro", message=msg)
 
-        
-    
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+    def selectItem(self, a):
+        curItem = self.tv.focus()
+        b = self.tv.item(curItem)
+        b = list(b.values())
+        nome = b[2][1]
+        pontos = b[2][2]
+        partidas = b[2][3]
+        vitorias = b[2][4]
+        empates = b[2][5]
+        derrotas = b[2][6]
+        gp = b[2][7]
+        gc = b[2][8]
+        ca = b[2][10]
+        cv = b[2][11]
+        self.vequipe.set(nome)
+        self.vpontos.set(str(pontos))
+        self.vpartidas.set(partidas)
+        self.vvitorias.set(str(vitorias))
+        self.vempates.set(str(empates))
+        self.vderrotas.set(str(derrotas))
+        self.vgp.set(str(gp))
+        self.vgc.set(str(gc))
+        self.vca.set(str(ca))
+        self.vcv.set(str(cv))
