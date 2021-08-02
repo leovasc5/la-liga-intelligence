@@ -15,11 +15,11 @@ sys.path.insert(0, parentdir)
 from graphics.main import *
 from reports.pontuacao import *
 from controllers.atualizarCSV import updateEquipe
+from models.times import getDados
 
 p = Path(os.getcwd())
 
 class App:
-    # tv = None
     def __init__(self, root, posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv):
         logo = PhotoImage(file=str(p)+"\\assets\\img\\logo.png")
         lbl1 = Label(root, image=logo, bg="#FFFFFF")
@@ -284,11 +284,10 @@ class App:
         en9 = Entry(frameEdit, width=10, textvariable=self.vcv)
         en9.place(x=240, y=315)
 
-        btn45 = Button(frameEdit, text="Atualizar Tabela", command=lambda: self.updateDate(self.vequipe.get(), self.vpontos.get(), self.vpartidas.get(),
+        btn45 = Button(frameEdit, text="Atualizar os Dados", command=lambda: self.updateDate(self.vequipe.get(), self.vpontos.get(), self.vpartidas.get(),
         self.vvitorias.get(), self.vempates.get(), self.vderrotas.get(), self.vgp.get(), self.vgc.get(), self.vca.get(), self.vcv.get()))
         btn45.place(x=470, y=300)
 
-        ##ADICIONAR LABEL DE AVISO
         lbl18 = Label(frameEdit, text="Para manter a confiabilidade dos dados é necessário que você", bg="#FFFFFF")
         lbl19 = Label(frameEdit, text="esteja ciente das regras da La Liga e do sistema de pontuação.", bg="#FFFFFF")
         lbl18.place(x=510, y=10)
@@ -444,6 +443,9 @@ class App:
             return self.escape("error", "Não é possível aceitar números negativos!")
 
         updateEquipe(equipe, pontos, partidas, vitorias, empates, derrotas, gp, gc, ca, cv)
+        self.sincronizar()
+        self.vca.set(""), self.vcv.set(""), self.vderrotas.set(""), self.vempates.set(""), self.vvitorias.set(""), self.vgp.set("")
+        self.vgc.set(""), self.vequipe.set(""), self.vpartidas.set(""), self.vpontos.set("")
 
     def escape(self, modo, msg):
         if modo == "error":
@@ -473,3 +475,13 @@ class App:
         self.vgc.set(str(gc))
         self.vca.set(str(ca))
         self.vcv.set(str(cv))
+
+    def sincronizar(self):
+        for i in self.tv.get_children():
+            self.tv.delete(i)
+        
+        dados = getDados()
+        
+        for i in dados["posicao"]:
+            self.tv.insert("", "end",values=(str(dados["posicao"][i-1]), dados["nome"][i-1], str(dados["pontos"][i-1]), str(dados["partidas"][i-1]), str(dados["vitorias"][i-1]),
+            str(dados["empates"][i-1]), str(dados["derrotas"][i-1]), str(dados["gp"][i-1]), str(dados["gc"][i-1]), str(dados["saldo"][i-1]), str(dados["ca"][i-1]), str(dados["cv"][i-1])))

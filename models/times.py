@@ -6,6 +6,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir) 
 
 from database.conexao import *
+from models.campeonato import *
 
 class Time:
     def __init__(self, id):
@@ -148,4 +149,45 @@ class Time:
 
     def getCartoesV(self, ):
         return self.cartoesV
- 
+
+def getDados():
+    a = Cpt()
+    timesID = a.getTimes()
+
+    timeID = []; timeNome = []; timePosicao = []; timePontos = []; timeVitorias = []; timeEmpates = []; timeDerrotas = []
+    timePartidas = []; timeGolsPro = []; timeGolsContra = []; timeSaldo = []; timeCartoesA = []; timeCartoesV = []
+
+    for times in timesID:
+        for id in times:
+            timeID.append(Time(id))
+            
+    for times in timeID:
+        timeNome.append(times.getNome())
+        timePosicao.append(times.getPosicao())
+        timePontos.append(times.getPontos())
+        timeVitorias.append(times.getVitorias())
+        timeEmpates.append(times.getEmpates())
+        timeDerrotas.append(times.getDerrotas())
+        timePartidas.append(times.getPartidas())
+        timeGolsPro.append(times.getGolsPro())
+        timeGolsContra.append(times.getGolsContra())
+        timeSaldo.append(times.getSaldo())
+        timeCartoesA.append(times.getCartoesA())
+        timeCartoesV.append(times.getCartoesV())
+
+    dados = {
+        "nome" : timeNome,
+        "posicao" : timePosicao,
+        "pontos" : timePontos,
+        "vitorias" : timeVitorias,
+        "empates" : timeEmpates,
+        "derrotas" : timeDerrotas,
+        "partidas" : timePartidas,
+        "gp" : timeGolsPro,
+        "gc" : timeGolsContra,
+        "saldo" : timeSaldo,
+        "ca" : timeCartoesA,
+        "cv" : timeCartoesV,
+    }
+
+    return dados
