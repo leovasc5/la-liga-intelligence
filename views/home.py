@@ -288,6 +288,12 @@ class App:
         self.vvitorias.get(), self.vempates.get(), self.vderrotas.get(), self.vgp.get(), self.vgc.get(), self.vca.get(), self.vcv.get()))
         btn45.place(x=470, y=300)
 
+        ##ADICIONAR LABEL DE AVISO
+        lbl18 = Label(frameEdit, text="Para manter a confiabilidade dos dados é necessário que você", bg="#FFFFFF")
+        lbl19 = Label(frameEdit, text="esteja ciente das regras da La Liga e do sistema de pontuação.", bg="#FFFFFF")
+        lbl18.place(x=510, y=10)
+        lbl19.place(x=510, y=27)
+
         frameCartoes = LabelFrame(root, text="Gráficos dos Cartões", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameCartoes.place(x=980, y=575, width=905, height=150)
 
