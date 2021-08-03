@@ -13,7 +13,7 @@ parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 
 from graphics.main import *
-from reports.pontuacao import *
+from reports.pontuacao import criarPDF_pont
 from controllers.atualizarCSV import updateEquipe
 from models.times import getDados
 
@@ -343,9 +343,9 @@ class App:
         framePDF = LabelFrame(root, text="Criar Relatórios PDF", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         framePDF.place(x=980, y=755, width=905)
 
-        btn44 = Button(framePDF, text="Relatório de Pontuação", command=lambda: self.call("pt_ba", 
+        btn44 = Button(framePDF, text="Relatório de Pontuação", command=lambda: self.call("pdf_pont", 
         posicao, nome, pontos, partidas, vitorias, empates, derrotas, gp, gc, saldo, ca, cv))
-        btn44.pack(side="left", padx=10, pady=10) ###EXEMPLO, ALTERAR DEPOIS
+        btn44.pack(side="left", padx=10, pady=10)
         
         frameSobre = LabelFrame(root, text="Sobre", padx=10, pady=10, font="Helvetica 16 bold", bg="#FFFFFF")
         frameSobre.place(x=980, y=875, width=905, height=150)
@@ -418,11 +418,11 @@ class App:
         cv_pl(nome, cv) if modo == "cv_pl" else None
         ca_sp(nome, ca) if modo == "ca_sp" else None
         cv_sp(nome, cv) if modo == "cv_sp" else None
+        criarPDF_pont(posicao, nome, pontos) if modo == "pdf_pont" else None
 
     def updateDate(self, equipe, pontos, partidas, vitorias, empates, derrotas, gp, gc, ca, cv):
         if equipe == "Equipe":
             return self.escape("error", "Não foi selecionada nenhuma equipe!")
-
         try:
             partidas = int(partidas)
             pontos = int(pontos)
