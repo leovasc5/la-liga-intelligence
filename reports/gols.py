@@ -11,14 +11,13 @@ from reportlab.pdfgen import canvas
 from reportlab.graphics import renderPDF
 from svglib.svglib import svg2rlg
 import seaborn as sns
-from tkinter import messagebox
 
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
 sys.path.insert(0, parentdir)
 from models.times import getDados
 
-def criarPDF_pont():
+def criarPDF_gols():
     dados = getDados()
     posicao = dados["posicao"]
     nome = dados["nome"]
@@ -27,7 +26,7 @@ def criarPDF_pont():
     
     p = Path(os.getcwd())
     caminho = str(p)+"\\assets\\dataFiles\\"
-    cnv = canvas.Canvas(caminho+"LaLigaPontuacao.pdf", pagesize=A4)
+    cnv = canvas.Canvas(caminho+"LaLigaGols.pdf", pagesize=A4)
     cnv.drawImage(str(p)+"\\assets\\img\\logo.png", x=50, y=750, width=150, height=50, mask="auto")
 
     cnv.setFont('Helvetica-Bold', 12)
@@ -203,4 +202,18 @@ def criarPDF_pont():
     cnv.showPage()
 
     cnv.save()
-    messagebox.showinfo(title="PDF Criado", message="O PDF foi criado no caminho: "+caminho+"LaLigaPontuacao.pdf")
+    print("PDF Criado")
+
+
+
+    # plt.close()
+    # sns.set_style("whitegrid")
+    # blue, = sns.color_palette("muted", 1)
+    # fig, ax = plt.subplots()
+    # ax.plot(pontos, saldo, color=blue, lw=2)
+    # ax.fill_between(pontos, 0, saldo, alpha=.3)
+    # ax.set(xlim=(min(pontos), max(pontos)), ylim=(-50, 60), xticks=pontos)
+    # plt.xlabel("Pontos")
+    # plt.ylabel("Saldo")
+    # plt.title("Area Chart")
+    # plt.legend()
