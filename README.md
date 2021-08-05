@@ -21,4 +21,20 @@
 <img src="https://user-images.githubusercontent.com/70069239/128292524-55c21213-ffbf-4f80-9850-0a127e3ae1c0.png"/>
 <label>Exemplo - Banco de Dados</label><br>
 <label>Example - Database</label>
-</div>
+<hr>
+
+<img src="https://user-images.githubusercontent.com/70069239/128292805-c9553570-83fa-41da-81f9-90655f16982e.png"/>
+<label>Exemplo - CSV</label><br>
+<label>Example - CSV</label>
+<hr>
+
+<img src="https://user-images.githubusercontent.com/70069239/128292938-8e909858-46c2-4e23-88f1-ff1c489067b2.png"/>
+<label>Exemplo - Gráfico</label><br>
+<label>Example - Graphic</label>
+<hr>
+
+<img src="https://user-images.githubusercontent.com/70069239/128293157-a1ea52a3-8d95-4d1a-87a4-f8053c30cb68.png"/>
+<label>Exemplo - PDF</label><br>
+<label>Example - PDF</label>
+<hr>
+
