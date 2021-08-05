@@ -12,3 +12,13 @@
 <img src="https://www.flags-and-anthems.com/media/flags/flagge-spanien.gif" height="20" width="30" style="max-width:100%;" title="Español">
 <p text-alingn="justify">Proyecto desarrollado en Python con herramientas Pandas, Matplotlib, Numpy, ReportLab y SQLite3. El objetivo es crear un software con interfaz gráfica que pueda almacenar datos de La Liga (Campeonato de España de Fútbol), realizar cálculos a partir de los datos, proporcionar gráficos, generar informes en PDF y distribuir sus datos en archivos CSV y XLSX.</p>
 <hr>
+<div align="center">
+<img src="https://user-images.githubusercontent.com/70069239/128292176-f297f07b-c458-40d3-94e5-76c07c3576c3.png"/>
+<label>Layout Principal</label><br>
+<label>Main Layout</label>
+<hr>
+  
+<img src="https://user-images.githubusercontent.com/70069239/128292524-55c21213-ffbf-4f80-9850-0a127e3ae1c0.png"/>
+<label>Exemplo - Banco de Dados</label><br>
+<label>Example - Database</label>
+</div>
