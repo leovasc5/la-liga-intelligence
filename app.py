@@ -1,7 +1,7 @@
 from models.campeonato import Cpt
 from models.times import Time
 from controllers.atualizarBD import updateBD
-# from views.intro import *
+from views.intro import *
 from views.home import App
 from tkinter import *
 from pathlib import Path

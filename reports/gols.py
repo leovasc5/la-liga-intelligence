@@ -23,6 +23,8 @@ def criarPDF_gols():
     nome = dados["nome"]
     pontos = dados["pontos"]
     saldo = dados["saldo"]
+    gp = dados["gp"]
+    gc = dados["gc"]
     
     p = Path(os.getcwd())
     caminho = str(p)+"\\assets\\dataFiles\\"
@@ -33,31 +35,47 @@ def criarPDF_gols():
     cnv.drawString(260, 75, "Desenvolvido por: ")
     cnv.setFont('Helvetica', 12)
     cnv.drawString(370, 75, "Leonardo Vasconcelos Paulino")
-    cnv.setTitle("La Liga - Relatório de Pontuação")
+    cnv.setTitle("La Liga - Relatório de Gols")
 
     cnv.setFont('Helvetica-Bold', 24)
-    cnv.drawString(160,690, "Relatório de Pontuação")
+    cnv.drawString(200,690, "Relatório de Gols")
 
-    cnv.rect(170, 195, 250, 420, stroke=1, fill=0)
-    cnv.rect(170, 195, 55, 420, stroke=1, fill=0)
-    cnv.rect(170, 195, 200, 420, stroke=1, fill=0)
-    cnv.rect(170, 195, 250, 400, stroke=1, fill=0)
+    cnv.rect(95, 195, 55, 420, stroke=1, fill=0)
+    cnv.rect(95, 195, 200, 420, stroke=1, fill=0)
+    cnv.rect(95, 195, 260, 420, stroke=1, fill=0)
+    cnv.rect(95, 195, 320, 420, stroke=1, fill=0)
+    cnv.rect(95, 195, 380, 420, stroke=1, fill=0)
+    cnv.rect(95, 195, 440, 420, stroke=1, fill=0)
+
+    cnv.rect(95, 195, 260, 400, stroke=1, fill=0)
+    cnv.rect(95, 195, 320, 400, stroke=1, fill=0)
+    cnv.rect(95, 195, 380, 400, stroke=1, fill=0)
+    cnv.rect(95, 195, 440, 400, stroke=1, fill=0)
     
     p1 = 580
-    p2 = 175
-    p3 = 235
-    p4 = 375
+    p2 = 100
+    p3 = 160
+    p4 = 300
+    p5 = 360
+    p6 = 420
+    p7 = 480
     j = 0
 
     cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(175, 600, "Posição")
-    cnv.drawString(235, 600, "Time")
-    cnv.drawString(375, 600, "Pontos")
+    cnv.drawString(100, 600, "Posição")
+    cnv.drawString(160, 600, "Time")
+    cnv.drawString(300, 600, "Pontos")
+    cnv.drawString(360, 600, "Gols +")
+    cnv.drawString(420, 600, "Gols -")
+    cnv.drawString(480, 600, "Saldo")
     cnv.setFont('Helvetica', 12)
     for i in posicao:
         cnv.drawString(p2,p1, (str(posicao[j])+"º"))
         cnv.drawString(p3,p1, str(nome[j]))
         cnv.drawString(p4,p1, str(pontos[j]))
+        cnv.drawString(p5,p1, str(gp[j]))
+        cnv.drawString(p6,p1, str(gc[j]))
+        cnv.drawString(p7,p1, str(saldo[j]))
         j+=1
         p1=p1-20
         
@@ -71,47 +89,15 @@ def criarPDF_gols():
 
     cnv.drawImage(str(p)+"\\assets\\img\\logo.png", x=50, y=750, width=150, height=50, mask="auto")
 
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(260, 75, "Desenvolvido por: ")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(370, 75, "Leonardo Vasconcelos Paulino")
-    cnv.setTitle("La Liga - Relatório de Pontuação")
-
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(50, 680, "Maior Pontuador:")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(155, 680, nome[0] + " ("+str(pontos[0])+")")
-
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(50, 660, "Menor Pontuador:")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(160, 660, nome[19] + " ("+str(pontos[19])+")")
-
-    somatoria = 0
-    for i in pontos:
-        somatoria += i
-    media = somatoria / len(pontos)
-    moda = statistics.mode(pontos)
-
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(50, 640, "Pontuação Média:")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(160, 640, str(media))
-
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(50, 620, "Moda:")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(95, 620, str(moda))
-
-    cnv.setFont('Helvetica-Bold', 12)
-    cnv.drawString(50, 600, "Somatória:")
-    cnv.setFont('Helvetica', 12)
-    cnv.drawString(120, 600, str(somatoria))
-
-    plt.rcParams.update({'font.size': 3})
+    plt.close()
     fig = plt.figure(figsize=(7, 4))
-    plt.title("La Liga Intelligence - Gráfico da Pontuação (Barras)")
-    plt.bar(nome, pontos, label='Pontos', width=0.5, align=CENTER)
+    plt.subplots_adjust(bottom=0.18, top=0.88)
+    tickvalues = range(0,len(nome))
+    plt.xticks(ticks=tickvalues, labels=nome, rotation='vertical')
+    plt.plot(gp)
+    plt.plot(gc)
+    plt.ylabel('Gols')
+    plt.legend(("Gols Pró", "Gols Sofridos"))
 
     imgdata = BytesIO()
     fig.savefig(imgdata, format='svg', dpi=199)
@@ -119,7 +105,7 @@ def criarPDF_gols():
 
     drawing=svg2rlg(imgdata)
 
-    renderPDF.draw(drawing, cnv, -15, 190)
+    renderPDF.draw(drawing, cnv, -5, 270)
 
     cnv.setFont('Helvetica-Bold', 12)
     cnv.drawString(260, 50, "GitHub: ")
@@ -167,7 +153,7 @@ def criarPDF_gols():
     cnv.drawString(260, 75, "Desenvolvido por: ")
     cnv.setFont('Helvetica', 12)
     cnv.drawString(370, 75, "Leonardo Vasconcelos Paulino")
-    cnv.setTitle("La Liga - Relatório de Pontuação")
+    cnv.setTitle("La Liga - Relatório de Gols")
 
     plt.close()
     fig = plt.figure(figsize=(7, 4))
@@ -191,7 +177,7 @@ def criarPDF_gols():
 
     drawing=svg2rlg(imgdata)
 
-    renderPDF.draw(drawing, cnv, 30, 250)
+    renderPDF.draw(drawing, cnv, 0, 10)
 
     cnv.setFont('Helvetica-Bold', 12)
     cnv.drawString(260, 50, "GitHub: ")

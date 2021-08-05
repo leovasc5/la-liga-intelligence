@@ -1,8 +1,8 @@
 ;ID;nome;pontos;vitorias;empates;derrotas;partidas;posicao;golsPro;golsContra;saldo;cartoesA;cartoesV
-0;2;Atletico de Madrid;86;26;8;4;38;1;67;25;42;65;6
-1;15;Real Madrid;84;26;9;4;38;2;70;28;42;57;4
-2;3;Barcelona;79;24;7;7;38;3;85;38;47;65;4
-3;17;Sevilla;77;24;5;9;38;4;53;33;20;72;4
+0;17;Sevilla;91;24;5;9;38;1;53;33;20;72;4
+1;2;Atletico de Madrid;86;26;8;4;38;2;67;25;42;65;6
+2;15;Real Madrid;84;26;9;4;38;3;70;28;42;57;4
+3;3;Barcelona;79;24;7;7;38;4;85;38;47;65;4
 4;16;Real Sociedad;62;17;11;10;38;5;59;38;21;81;2
 5;4;Betis;61;17;10;11;38;6;50;50;0;81;8
 6;19;Villarreal;58;15;13;10;38;7;60;44;16;64;10

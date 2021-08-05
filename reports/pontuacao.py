@@ -180,7 +180,7 @@ def criarPDF_pont():
     ax.set(xlim=(min(pontos), max(pontos)), ylim=(-50, 60), xticks=pontos)
     plt.xlabel("Pontos")
     plt.ylabel("Saldo")
-    plt.title("Area Chart")
+    plt.title("Gráfico de Área")
     plt.legend()
 
     plt.title("La Liga Intelligence - Gráfico da Pontuação (Pizza)")
@@ -203,4 +203,4 @@ def criarPDF_pont():
     cnv.showPage()
 
     cnv.save()
-    messagebox.showinfo(title="PDF Criado", message="O PDF foi criado no caminho: "+caminho+"LaLigaPontuacao.pdf")
+    messagebox.showinfo(title="PDF Criado", message="O PDF foi criado no caminho: "+parentdir+"/LaLigaIntelligence/assets/dataFiles/LaLigaPontuacao.pdf")
